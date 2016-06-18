@@ -5,6 +5,7 @@
     "Newtonsoft.Json": "8.0.3",
     "sqlite-net-pcl": "1.1.2",
     "Template10": "1.1.11",
+    "WinRTXamlToolkit.Controls.DataVisualization.UWP": "2.0.0",
     "WinRTXamlToolkit.Controls.Gauge.UWP": "2.0.0"
   },
   "frameworks": {

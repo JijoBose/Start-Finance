@@ -9,6 +9,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:InstaRichie.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
       Loaded="Page_Loaded"
       xmlns:vm="using:InstaRichie.ViewModels" mc:Ignorable="d">
 
@@ -27,6 +28,8 @@
                     <VisualState.Setters>
                         <!--  TODO: change properties for narrow view  -->
                         <!--<Setter Target="stateTextBox.Text" Value="Narrow Visual State" />-->
+                        <Setter Target="SecondCols.(Width)" Value="0"/>
+                        <Setter Target="DashTop.(HorizontalAlignment)" Value="Left"/>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateNormal">
@@ -73,31 +76,52 @@
                             <RowDefinition Height="220"/>
                             <RowDefinition Height="300"/>
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0">
+                        
+                        <StackPanel x:Name="DashTop" Grid.Row="0" HorizontalAlignment="Center">
                             <TextBlock x:Name="FullTotal" Text="Account Total"
-                                       HorizontalAlignment="Center"
                                        FontSize="40" FontWeight="Bold"/>
-                            <TextBlock x:Name="AccountTotal" Text="Account Total"
-                                       HorizontalAlignment="Center"
+                            <TextBlock x:Name="AccountTotal" Text="Account Total"                        
                                        FontSize="36" FontWeight="Bold"/>
-                            <TextBlock x:Name="Assets" Text="Account Total"
-                                       HorizontalAlignment="Center"
+                            <TextBlock x:Name="Assets" Text="Account Total"                          
                                        FontSize="36" FontWeight="Bold"/>
                             <TextBlock x:Name="Debts" Text="Account Total"
-                                       HorizontalAlignment="Center"
                                        FontSize="36" FontWeight="Bold"/>
                         </StackPanel>
 
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition x:Name="SecondCols" Width="*"/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" Background="#FFEEC923">
+                                <Pivot Title="Report">
+                                    <PivotItem Header="Monthly">
+                                        <Grid>
+                                            <Charting:Chart  x:Name="PieChart" HorizontalAlignment="Stretch"
+                                                 VerticalAlignment="Stretch"
+                                                 Margin="0" >
+                                                <Charting:ColumnSeries Margin="0" IndependentValuePath="Year"
+                                                        DependentValuePath="Amount" IsSelectionEnabled="True"/>
+                                            </Charting:Chart>
+                                        </Grid>
+                                    </PivotItem>
+                                    <PivotItem Header="Yearly">
+                                        <Grid>
+                                            <Charting:Chart  x:Name="YrBarChart" HorizontalAlignment="Stretch"
+                                                 VerticalAlignment="Stretch"
+                                                 Margin="0" >
+                                                <Charting:ColumnSeries Margin="0" IndependentValuePath="Year"
+                                                        DependentValuePath="Amount" IsSelectionEnabled="True"/>
+                                            </Charting:Chart>
+                                        </Grid>
+                                    </PivotItem>
+                                </Pivot>
 
                             </Grid>
                         </Grid>
+                        
+                        
                     </Grid>
                 </ScrollViewer>
             </PivotItem>

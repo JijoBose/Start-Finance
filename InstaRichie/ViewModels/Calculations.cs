@@ -54,6 +54,25 @@ namespace InstaRichie.ViewModels
 
         }
 
+        //public double PreYear()
+        //{
+        //    try
+        //    {
+        //        int currentYear = Convert.ToInt16(DateTime.Now.AddYears(-1));
+        //        int DaysinMonth = DateTime.DaysInMonth(currentYear, 12);
+        //        conn.CreateTable<Transactions>();
+        //        var SUMOF = conn.Query<Transactions>("SELECT * FROM Transactions WHERE DateOfTran BETWEEN ' 01/01/" + currentYear + "' AND '12/" + DaysinMonth + "/" + currentYear + "'");
+        //        var sumProdQty1 = SUMOF.AsEnumerable().Sum(o => o.Amount);
+        //        double Temps = sumProdQty1;
+        //        return Temps;
+        //    }
+        //    catch (NullReferenceException)
+        //    {
+        //        double Temp = 0;
+        //        return Temp;
+        //    }
+        //}
+
         public double AssetCalculation()
         {
             conn = new SQLiteConnection(path);
