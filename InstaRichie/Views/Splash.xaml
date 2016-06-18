@@ -9,7 +9,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d">
 
-    <Grid Background="{StaticResource ExtendedSplashBackground}">
+    <Grid Background="White">
 
         <Canvas x:Name="rootCanvas" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
@@ -30,7 +30,7 @@
         <ProgressRing x:Name="progressRing" Width="50"
                       Height="50" HorizontalAlignment="Center"
                       VerticalAlignment="Center"
-                      Foreground="{StaticResource ExtendedSplashForeground}"
+                      Foreground="Blue"
                       IsActive="True" RenderTransformOrigin="0.5,0.5">
             <ProgressRing.RenderTransform>
                 <CompositeTransform x:Name="ProgressTransform" TranslateY="120" />

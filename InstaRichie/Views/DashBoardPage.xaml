@@ -9,6 +9,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:InstaRichie.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Loaded="Page_Loaded"
       xmlns:vm="using:InstaRichie.ViewModels" mc:Ignorable="d">
 
     <Page.DataContext>
@@ -61,5 +62,45 @@
             </controls:PageHeader.SecondaryCommands>
 
         </controls:PageHeader>
+        <!--- Page starts here-->
+
+        <Pivot Background="Orange">
+            <RelativePanel.Below>pageHeader</RelativePanel.Below>
+            <PivotItem>
+                <ScrollViewer>
+                    <Grid Background="Orange">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="220"/>
+                            <RowDefinition Height="300"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0">
+                            <TextBlock x:Name="FullTotal" Text="Account Total"
+                                       HorizontalAlignment="Center"
+                                       FontSize="40" FontWeight="Bold"/>
+                            <TextBlock x:Name="AccountTotal" Text="Account Total"
+                                       HorizontalAlignment="Center"
+                                       FontSize="36" FontWeight="Bold"/>
+                            <TextBlock x:Name="Assets" Text="Account Total"
+                                       HorizontalAlignment="Center"
+                                       FontSize="36" FontWeight="Bold"/>
+                            <TextBlock x:Name="Debts" Text="Account Total"
+                                       HorizontalAlignment="Center"
+                                       FontSize="36" FontWeight="Bold"/>
+                        </StackPanel>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" Background="#FFEEC923">
+
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </PivotItem>
+        </Pivot>
     </RelativePanel>
 </Page>

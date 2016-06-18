@@ -33,6 +33,27 @@ namespace InstaRichie.ViewModels
             return Temp1;
         }
 
+        public double MonthlyStatus()
+        {
+            try
+            {
+                int currentMonth = DateTime.Now.Month;
+                int currentYear = DateTime.Now.Year;
+                int DaysinMonth = DateTime.DaysInMonth(currentYear, currentMonth);
+                conn.CreateTable<Transactions>();
+                var SUMOF = conn.Query<Transactions>("SELECT * FROM Transactions WHERE DateOfTran BETWEEN '" + currentMonth + "/01/" + currentYear + "' AND '" + currentMonth + "/" + DaysinMonth + "/" + currentYear + "'");
+                var sumProdQty1 = SUMOF.AsEnumerable().Sum(o => o.Amount);
+                double Temps = sumProdQty1;
+                return Temps;
+            }
+            catch (NullReferenceException)
+            {
+                double Temp = 0;
+                return Temp;
+            }
+
+        }
+
         public double AssetCalculation()
         {
             conn = new SQLiteConnection(path);
@@ -65,36 +86,6 @@ namespace InstaRichie.ViewModels
             double TotalAssetincome = FullValuation();
             double percentage = (-DebtCalculation() / (TotalAssetincome) * 100);
             return percentage;
-        }
-
-        public double MonthlyTrarget()
-        {
-            conn = new SQLiteConnection(path);
-            // Creating table
-            conn.CreateTable<Accounts>();
-            string currentMonth = DateTime.Now.Month.ToString();
-            string currentYear = DateTime.Now.Year.ToString();
-            string currentDate = DateTime.Now.Date.ToString();
-
-            //// getting values
-            double Toto;
-            // more needed
-            var SumQuery = conn.Query<Accounts>("SELECT * FROM Accounts WHERE DateOfTran BETWEEN '" + currentMonth + "/01/" + currentYear + "' AND '" + currentMonth + "/" + currentDate + "/" + currentYear + "'");
-            var sumProdQty = SumQuery.AsEnumerable().Sum(o => o.InitialAmount);
-            Toto = sumProdQty;
-            return Toto;
-
-        }
-
-        public string GetCurrentYear()
-        {
-            DateTime dt = DateTime.Now;
-            return dt.Year.ToString();
-        }
-        public string GetCurrentMonth()
-        {
-            DateTime dt = DateTime.Now;
-            return dt.Month.ToString();
         }
 
         public string CreditRatio()
