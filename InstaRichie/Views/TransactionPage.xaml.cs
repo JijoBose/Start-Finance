@@ -54,6 +54,11 @@ namespace InstaRichie.Views
             ///// inserts the data if money value is null
             try
             {
+                string CDay = DateStamp.Date.Value.Day.ToString();
+                string CMonth = DateStamp.Date.Value.Month.ToString();
+                string CYear = DateStamp.Date.Value.Year.ToString();
+                string FinalDate = "" + CMonth + "/" + CDay + "/" + CYear;
+
                 string AccountSelection = ((Accounts)AccountsListSel.SelectedItem).AccountName;
                 /// inserts the data if money value is null
                 /// 
@@ -70,7 +75,7 @@ namespace InstaRichie.Views
                     {
                         conn.Insert(new Transactions()
                         {
-                            DateOfTran = DateStamp.Date.Value.DateTime,
+                            DateOfTran = FinalDate,
                             TranType = IncExpSelect.SelectionBoxItem.ToString(),
                             Description = Desc.Text,
                             Account = AccountSelection,
@@ -93,7 +98,7 @@ namespace InstaRichie.Views
                         {
                             conn.Insert(new Transactions()
                             {
-                                DateOfTran = DateStamp.Date.Value.DateTime,
+                                DateOfTran = FinalDate,
                                 TranType = IncExpSelect.SelectionBoxItem.ToString(),
                                 Description = Desc.Text,
                                 Account = AccountSelection,
@@ -190,6 +195,11 @@ namespace InstaRichie.Views
         {
             try
             {
+                string CDay = DateStamp.Date.Value.Day.ToString();
+                string CMonth = DateStamp.Date.Value.Month.ToString();
+                string CYear = DateStamp.Date.Value.Year.ToString();
+                string FinalDate = "" + CMonth + "/" + CDay + "/" + CYear;
+
                 // Getting data from the combobox
                 string FromData = ((Accounts)FromAccountsSel.SelectedItem).AccountName;
                 string ToData = ((Accounts)ToAccountSel.SelectedItem).AccountName;
@@ -231,7 +241,7 @@ namespace InstaRichie.Views
                         Amount = TINMoney,
                         Description = TDesc.Text,
                         TranType = "Internal Transfer",
-                        DateOfTran = TranDateStamp.Date.Value.DateTime
+                        DateOfTran = FinalDate
                     });
                     double Exp = TINMoney + TransferToExpense();
                     var query4 = conn.Query<Accounts>("UPDATE Accounts SET InitialAmount = " + Exp + " WHERE AccountName ='" + ToData + "'");

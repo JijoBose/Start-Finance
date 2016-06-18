@@ -17,9 +17,9 @@
         <DataTemplate x:Key="TransListView">
             <Grid>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding ID}"/>
-                    <TextBlock Text="{Binding AccountName}"/>
-                    <TextBlock Text="{Binding InitialAmount}"/>
+                    <TextBlock Text="{Binding ID}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding AccountName}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding InitialAmount}" Padding="0,0,15,0"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>

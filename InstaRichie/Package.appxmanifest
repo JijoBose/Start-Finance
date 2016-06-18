@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity
-    Name="55315fcf-abdd-4acd-aa68-afdab1b5cfbf"
-    Publisher = "CN=Bose"
-    Version = "1.0.0.0" /> 
-  <mp:PhoneIdentity PhoneProductId="55315fcf-abdd-4acd-aa68-afdab1b5cfbf" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <Identity Name="55315fcf-abdd-4acd-aa68-afdab1b5cfbf" Publisher="CN=Bose" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="55315fcf-abdd-4acd-aa68-afdab1b5cfbf" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>InstaRichie</DisplayName>
-    <PublisherDisplayName>Bose</PublisherDisplayName>
+    <PublisherDisplayName>Feat Apps</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -18,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="InstaRichie.App">
-      <uap:VisualElements DisplayName="InstaRichie.App" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Sample" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="InstaRichie" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Sample" BackgroundColor="orange">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

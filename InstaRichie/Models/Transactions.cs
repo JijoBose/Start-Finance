@@ -13,7 +13,7 @@ namespace InstaRichie.Models
         public int ID { get; set; }
 
         [NotNull]
-        public DateTime DateOfTran { get; set; }
+        public string DateOfTran { get; set; }
 
         [NotNull]
         public string Account { get; set; }

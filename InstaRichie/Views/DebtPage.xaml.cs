@@ -49,6 +49,11 @@ namespace InstaRichie.Views
             Calculations nnn = new Calculations();
             try
             {
+                string CDay = DateStamp.Date.Value.Day.ToString();
+                string CMonth = DateStamp.Date.Value.Month.ToString();
+                string CYear = DateStamp.Date.Value.Year.ToString();
+                string FinalDate = "" + CMonth + "/" + CDay + "/" + CYear;
+
                 if (DebtModeSelect.SelectionBoxItem.ToString() == "Add Debts")
                 {
                     if (Desc.Text == "")
@@ -62,7 +67,7 @@ namespace InstaRichie.Views
                         double Dmoney = 0 - Money;
                         conn.Insert(new Debt()
                         {
-                            DateofDebt = DateStamp.Date.Value.DateTime,
+                            DateofDebt = FinalDate,
                             DebtName = Desc.Text,
                             DebtAmount = Dmoney
                         });
@@ -83,7 +88,7 @@ namespace InstaRichie.Views
                     {
                         conn.Insert(new Debt()
                         {
-                            DateofDebt = DateStamp.Date.Value.DateTime,
+                            DateofDebt = FinalDate,
                             DebtName = Desc.Text,
                             DebtAmount = Dmoney
                         });

@@ -16,9 +16,9 @@
         <DataTemplate x:Key="AssetListDatavalue">
             <Grid>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding ID}"/>
-                    <TextBlock Text="{Binding AssetName}"/>
-                    <TextBlock Text="{Binding AssetValue}"/>
+                    <TextBlock Text="{Binding ID}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding AssetName}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding AssetValue}" Padding="0,0,15,0"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
