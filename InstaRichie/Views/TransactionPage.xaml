@@ -1,0 +1,111 @@
+﻿<Page
+    x:Class="InstaRichie.Views.TransactionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Behaviors="using:Template10.Behaviors"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:InstaRichie.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="Page_Loaded"
+    xmlns:vm="using:InstaRichie.ViewModels" mc:Ignorable="d">
+
+    <Page.DataContext>
+        <vm:MainPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <DataTemplate x:Key="AccountSelectionData">
+            <Grid>
+                <StackPanel>
+                    <TextBlock>
+                        <Run Text="{Binding AccountName}"/>
+                        <Run Text="{Binding InitialAmount}"/>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for narrow view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Narrow Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for normal view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Normal Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for wide view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Wide Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <controls:PageHeader x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True" Text="Transaction">
+
+            <!--  secondary commands  -->
+            <controls:PageHeader.SecondaryCommands>
+                <AppBarButton Click="{x:Bind ViewModel.GotoSettings}" Label="Settings" />
+                <AppBarButton Click="{x:Bind ViewModel.GotoPrivacy}" Label="Privacy" />
+                <AppBarButton Click="{x:Bind ViewModel.GotoAbout}" Label="About" />
+            </controls:PageHeader.SecondaryCommands>
+
+        </controls:PageHeader>
+
+        <!--Page Conetents start here-->
+        <Pivot Grid.Row="1">
+            <RelativePanel.Below>pageHeader</RelativePanel.Below>
+            <PivotItem Header="Add Transaction">
+                <Grid>
+                    <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
+                        <ComboBox x:Name="AccountsListSel" Header="Select the account" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemTemplate="{StaticResource AccountSelectionData}"/>
+                        <CalendarDatePicker x:Name="DateStamp" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <ComboBox x:Name="IncExpSelect" Header="Select Income or Expense" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedIndex="0">
+                            <ComboBoxItem Content="Income"/>
+                            <ComboBoxItem Content="Expense"/>
+                        </ComboBox>
+                        <TextBox x:Name="MoneyIn" Header="Amount" TextWrapping="Wrap" InputScope="Number"/>
+                        <TextBox x:Name="Desc" Header="Description"/>
+                        <Button x:Name="AddTran" Content="Add Transaction" Margin="0,20,0,0" Click="AddData"/>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Internal Transfer">
+                <Grid>
+                    <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
+                        <ComboBox x:Name="FromAccountsSel" Header="Transfer From Account" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemTemplate="{StaticResource AccountSelectionData}"/>
+                        <ComboBox x:Name="ToAccountSel" Header="Transfer To" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemTemplate="{StaticResource AccountSelectionData}"/>
+                        <CalendarDatePicker x:Name="TranDateStamp" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBox x:Name="TransferMoney" Header="Amount" TextWrapping="Wrap" InputScope="Number"/>
+                        <TextBox x:Name="TDesc" Header="Description"/>
+                        <Button x:Name="Transfer" Content="Transfer" Margin="0,20,0,0" Click="Transfer_Click"/>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+    </RelativePanel>
+</Page>
