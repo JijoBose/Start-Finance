@@ -3,13 +3,15 @@ using SQLite;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using SQLite.Net;
+using System.IO;
 
 namespace InstaRichie.Views
 {
     public sealed partial class SettingsPage : Page
     {
         SQLiteConnection conn; // adding an SQLite connection
-        string path = "Findata.sqlite"; // Name of the database must be unique 
+        string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Findata.sqlite");
 
         Template10.Services.SerializationService.ISerializationService _SerializationService;
 
@@ -27,7 +29,7 @@ namespace InstaRichie.Views
 
         private void ResetMan_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            conn = new SQLiteConnection(path);
+            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             /// deleteing table
             conn.DropTable<Accounts>();
             conn.DropTable<Assets>();

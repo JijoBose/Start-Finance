@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite;
-using SQLitePCL;
+using SQLite.Net.Attributes;
 
 namespace InstaRichie.Models
 {

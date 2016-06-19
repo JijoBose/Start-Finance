@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using SQLite;
 using InstaRichie.Models;
 using Windows.UI.Popups;
+using SQLite.Net;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,7 +27,7 @@ namespace InstaRichie.Views
     public sealed partial class TransactionPage : Page
     {
         SQLiteConnection conn; // adding an SQLite connection
-        string path = "Findata.sqlite"; // Name of the database must be unique 
+        string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Findata.sqlite");
 
         public TransactionPage()
         {
@@ -34,7 +35,7 @@ namespace InstaRichie.Views
 
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             /// Initializing a database
-            conn = new SQLiteConnection(path);
+            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             // Creating table
             conn.CreateTable<Transactions>();
             DateStamp.Date = DateTime.Now; // gets current date and time
@@ -178,7 +179,7 @@ namespace InstaRichie.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            conn = new SQLiteConnection(path);
+            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             conn.CreateTable<Accounts>();
             var query1 = conn.Table<Accounts>();
             AccountsListSel.ItemsSource = query1.ToList();

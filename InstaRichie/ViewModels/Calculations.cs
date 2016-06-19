@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite;
+using SQLite.Net;
 using InstaRichie.Models;
+using System.IO;
 
 namespace InstaRichie.ViewModels
 {
     public class Calculations
     {
         SQLiteConnection conn; // adding an SQLite connection
-        string path = "Findata.sqlite"; // Name of the database must be the same
+        string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Findata.sqlite");
 
         public double DebtCalculation() // Getting Total Debt
         {
             /// Initializing a database
-            conn = new SQLiteConnection(path);
+            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             // Creating table
             conn.CreateTable<Debt>();
 
@@ -54,28 +55,9 @@ namespace InstaRichie.ViewModels
 
         }
 
-        //public double PreYear()
-        //{
-        //    try
-        //    {
-        //        int currentYear = Convert.ToInt16(DateTime.Now.AddYears(-1));
-        //        int DaysinMonth = DateTime.DaysInMonth(currentYear, 12);
-        //        conn.CreateTable<Transactions>();
-        //        var SUMOF = conn.Query<Transactions>("SELECT * FROM Transactions WHERE DateOfTran BETWEEN ' 01/01/" + currentYear + "' AND '12/" + DaysinMonth + "/" + currentYear + "'");
-        //        var sumProdQty1 = SUMOF.AsEnumerable().Sum(o => o.Amount);
-        //        double Temps = sumProdQty1;
-        //        return Temps;
-        //    }
-        //    catch (NullReferenceException)
-        //    {
-        //        double Temp = 0;
-        //        return Temp;
-        //    }
-        //}
-
         public double AssetCalculation()
         {
-            conn = new SQLiteConnection(path);
+            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             // Creating table
             conn.CreateTable<Assets>();
 
@@ -88,7 +70,7 @@ namespace InstaRichie.ViewModels
 
         public double AccountTotal()
         {
-            conn = new SQLiteConnection(path);
+            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             // Creating table
             conn.CreateTable<Accounts>();
 

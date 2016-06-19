@@ -16,6 +16,7 @@ using SQLite;
 using InstaRichie.Models;
 using InstaRichie.ViewModels;
 using Windows.UI.Popups;
+using SQLite.Net;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,14 +28,14 @@ namespace InstaRichie.Views
     public sealed partial class DebtPage : Page
     {
         SQLiteConnection conn; // adding an SQLite connection
-        string path = "Findata.sqlite"; // Name of the database must be unique 
+        string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Findata.sqlite");
 
         public DebtPage()
         {
             this.InitializeComponent();
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             /// Initializing a database
-            conn = new SQLiteConnection(path);
+            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             // Creating table
             conn.CreateTable<Debt>();
             DateStamp.Date = DateTime.Now; // gets current date and time
