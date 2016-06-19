@@ -17,12 +17,12 @@
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>InstaRichie_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>InstaRichie_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>83DC47CA8EAAEF1603925A5F1EEF58A3021158DE</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>1D304751CDB156C3A798817087F02F720C52138E</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -95,6 +95,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="InstaRichie_StoreKey.pfx" />
     <None Include="InstaRichie_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Help.htm" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
