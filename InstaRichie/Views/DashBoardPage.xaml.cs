@@ -36,6 +36,7 @@ namespace InstaRichie.Views
             FullTotal.Text = "Total Value: " + nnn.FullValuation().ToString();
             myDebtFlow.Value = nnn.PercentageScore();
             MonthlyData.Text = "Monthly : " + nnn.MonthlyStatus().ToString();
+            RatioReportTxt.Text = nnn.RatioReport();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -48,6 +49,7 @@ namespace InstaRichie.Views
             FullTotal.Text = "Total Value: " + nnn.FullValuation().ToString();
             myDebtFlow.Value = nnn.PercentageScore();
             MonthlyData.Text = nnn.MonthlyStatus().ToString();
+            RatioReportTxt.Text = nnn.RatioReport();
         }
 
     }

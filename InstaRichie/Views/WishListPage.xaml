@@ -83,7 +83,7 @@
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
             <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
                 <TextBox x:Name="_Wishname" Header="Description"/>
-                <TextBox x:Name="MoneyIn" Header="Amount" TextWrapping="Wrap" InputScope="CurrencyAmountAndSymbol"/>
+                <TextBox x:Name="MoneyIn" Header="Amount" TextWrapping="Wrap" InputScope="Number"/>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="AddWish" Content="Add WishList" Margin="0,20,0,0" Click="AddWish_Click"/>
                     <Button x:Name="DeleteItem" Content="Delete Item" Margin="15,20,0,0" Click="DeleteItem_Click"/>

@@ -118,6 +118,67 @@ namespace InstaRichie.ViewModels
             return percentage;
         }
 
+        public string RatioReport()
+        {
+            string output;
+            string input = CreditRatio();
+            if(input == "AAA+")
+            {
+                output = "Extremely strong capacity to meet its financial commitments";
+                return output;
+            }
+            else if(input == "AAA")
+            {
+                output = "Strong capacity to meet its financial commitments";
+                return output;
+            }
+            else if(input == "AA")
+            {
+                output = "'AA' has High capacity with very low credit risk, but susceptibility to long-term risks appears somewhat greater";
+                return output;
+            }
+            else if(input == "A")
+            {
+                output = "'A' has strong capacity to meet its financial commitments but is somewhat more susceptible to the adverse effects of changes in circumstances and economic conditions than obligors in higher-rated categories";
+                return output;
+            }
+            else if(input == "BBB")
+            {
+                output = "'BBB' has adequate capacity to meet its financial commitments. However, adverse economic conditions or changing circumstances are more likely to lead to a weakened capacity of the obligor to meet its financial commitments";
+                return output;
+            }
+            else if(input == "BB")
+            {
+                output = "'BB' is less vulnerable in the near term than other lower-rated obligors. However, it faces major ongoing uncertainties and exposure to adverse business, financial, or economic conditions, which could lead to the obligor's inadequate capacity to meet its financial commitments";
+                return output;
+            }
+            else if(input == "B")
+            {
+                output = "'B' is more vulnerable than the obligors rated 'BB', but the obligor currently has the capacity to meet its financial commitments. Adverse business, financial, or economic conditions will likely impair the obligor's capacity or willingness to meet its financial commitments";
+                return output;
+            }
+            else if(input == "CCC")
+            {
+                output = "'CCC' is currently vulnerable, and is dependent upon favorable business, financial, and economic conditions to meet its financial commitments";
+                return output;
+            }
+            else if(input == "CC")
+            {
+                output = "'CC' is currently highly vulnerable";
+                return output;
+            }
+            else if(input == "C")
+            {
+                output = "highly vulnerable, perhaps in bankruptcy or in arrears but still continuing to pay out on obligations";
+                return output;
+            }
+            else
+            {
+                output = "has defaulted on obligations and S&P believes that it will generally default on most or all obligations";
+                return output;
+            }
+        }
+
         public string CreditRatio()
         {
             string CreditRating;
@@ -132,56 +193,56 @@ namespace InstaRichie.ViewModels
             {
                 if (Percentage > 90 || Percentage >= 100)
                 {
-                    CreditRating = "CCC";
+                    CreditRating = "C";
                     return CreditRating;
                 }
                 else
                 {
                     if (Percentage > 80 || Percentage >= 90)
                     {
-                        CreditRating = "B";
+                        CreditRating = "CC";
                         return CreditRating;
                     }
                     else
                     {
                         if (Percentage > 70 || Percentage >= 80)
                         {
-                            CreditRating = "BB";
+                            CreditRating = "CCC";
                             return CreditRating;
                         }
                         else
                         {
                             if (Percentage > 60 || Percentage >= 70)
                             {
-                                CreditRating = "BBB";
+                                CreditRating = "B";
                                 return CreditRating;
                             }
                             else
                             {
                                 if (Percentage > 50 || Percentage >= 60)
                                 {
-                                    CreditRating = "A";
+                                    CreditRating = "BB";
                                     return CreditRating;
                                 }
                                 else
                                 {
                                     if (Percentage > 40 || Percentage >= 50)
                                     {
-                                        CreditRating = "A+";
+                                        CreditRating = "BBB";
                                         return CreditRating;
                                     }
                                     else
                                     {
                                         if (Percentage > 30 || Percentage >= 40)
                                         {
-                                            CreditRating = "AA";
+                                            CreditRating = "A";
                                             return CreditRating;
                                         }
                                         else
                                         {
                                             if (Percentage > 20 || Percentage >= 30)
                                             {
-                                                CreditRating = "AA+";
+                                                CreditRating = "AA";
                                                 return CreditRating;
                                             }
                                             else
@@ -193,7 +254,7 @@ namespace InstaRichie.ViewModels
                                                 }
                                                 else
                                                 {
-                                                    CreditRating = "AAA++";
+                                                    CreditRating = "AAA+";
                                                     return CreditRating;
                                                 }
                                             }

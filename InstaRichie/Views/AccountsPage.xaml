@@ -75,7 +75,7 @@
         <StackPanel x:Name="PageStart" Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
             <TextBox x:Name="AccName" Header="Account Name" TextWrapping="Wrap"/>
-            <TextBox x:Name="MoneyIn" Header="Initial Amount" TextWrapping="Wrap"/>
+            <TextBox x:Name="MoneyIn" Header="Initial Amount" InputScope="Number" TextWrapping="Wrap"/>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="AddWish" Content="Add Account" Margin="0,20,0,0" Click="AppBarButton_Click"/>
                 <Button x:Name="DeleteItem" Content="Delete Item" Margin="15,20,0,0" Click="DeleteItem_Click"/>
