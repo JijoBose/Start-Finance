@@ -9,7 +9,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:InstaRichie.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+      xmlns:CircleGuage="using:WinRTXamlToolkit.Controls"
       Loaded="Page_Loaded"
       xmlns:vm="using:InstaRichie.ViewModels" mc:Ignorable="d">
 
@@ -17,8 +17,7 @@
         <vm:MainPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
 
-    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <RelativePanel Background="Orange">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
                 <VisualState x:Name="VisualStateNarrow">
@@ -28,8 +27,9 @@
                     <VisualState.Setters>
                         <!--  TODO: change properties for narrow view  -->
                         <!--<Setter Target="stateTextBox.Text" Value="Narrow Visual State" />-->
-                        <Setter Target="SecondCols.(Width)" Value="0"/>
-                        <Setter Target="DashTop.(HorizontalAlignment)" Value="Left"/>
+                        <Setter Target="SecondCol.(Width)" Value="0"/>
+                        <Setter Target="ReportGrid.(Grid.Column)" Value="0"/>
+                        <Setter Target="ReportGrid.(Grid.Row)" Value="1"/>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateNormal">
@@ -65,63 +65,88 @@
             </controls:PageHeader.SecondaryCommands>
 
         </controls:PageHeader>
+
         <!--- Page starts here-->
 
-        <Pivot Background="Orange">
+        
+        <Pivot>
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
-            <PivotItem>
+            <PivotItem Header="Your Summary...">
                 <ScrollViewer>
                     <Grid Background="Orange">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="220"/>
-                            <RowDefinition Height="300"/>
+                            <RowDefinition Height="260"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition x:Name="TopThreeCols" Height="*"/>
                         </Grid.RowDefinitions>
-                        
-                        <StackPanel x:Name="DashTop" Grid.Row="0" HorizontalAlignment="Center">
-                            <TextBlock x:Name="FullTotal" Text="Account Total"
-                                       FontSize="40" FontWeight="Bold"/>
-                            <TextBlock x:Name="AccountTotal" Text="Account Total"                        
-                                       FontSize="36" FontWeight="Bold"/>
-                            <TextBlock x:Name="Assets" Text="Account Total"                          
-                                       FontSize="36" FontWeight="Bold"/>
-                            <TextBlock x:Name="Debts" Text="Account Total"
-                                       FontSize="36" FontWeight="Bold"/>
-                        </StackPanel>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition x:Name="SecondCol" Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="DashTop" Grid.Row="0" HorizontalAlignment="Left">
+                            <Pivot HorizontalAlignment="Center">
+                                <PivotItem Header="Money">
+                                    <Grid>
+                                        <StackPanel>
+                                            <TextBlock x:Name="AccountTotal" Text="Account Total"                        
+                                       FontSize="30" FontWeight="Bold"/>
+                                            <TextBlock x:Name="CreditRatio" Text="Credit Ratio"
+                                                   FontSize="30" Padding="0,25,0,0" 
+                                                   FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <TextBlock x:Name="FullTotal" Text="Full Total"
+                                       FontSize="40" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                                    </Grid>
+                                </PivotItem>
+                                
+                                <PivotItem Header="Savings">
+                                    <StackPanel>
+                                        <TextBlock x:Name="Assets" Text="Asset total"                          
+                                       FontSize="30" HorizontalAlignment="Left" FontWeight="Bold"/>
+                                    </StackPanel>
+                                </PivotItem>
 
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition x:Name="SecondCols" Width="*"/>
-                            </Grid.ColumnDefinitions>
+                                <PivotItem Header="Debts">
+                                    <StackPanel>
+                                        <TextBlock x:Name="Debts" Text="Debt Total"
+                                       FontSize="30" FontWeight="Bold"/>
+                                        <CircleGuage:Gauge x:Name="myDebtFlow" Unit="Debt %" Width="150" Height="150"
+                                          ScaleTickBrush="Transparent" TickBrush="Transparent"
+                                          ScaleWidth="30" CanDrag="True">
+                                            <CircleGuage:Gauge.NeedleBrush>
+                                                <LinearGradientBrush EndPoint="0,0">
+                                                    <GradientStop Color="Black" />
+                                                    <GradientStop Color="Yellow" Offset="0.5" />
+                                                    <GradientStop Color="Black" Offset="3" />
+                                                </LinearGradientBrush>
+                                            </CircleGuage:Gauge.NeedleBrush>
+                                            <CircleGuage:Gauge.TrailBrush>
+                                                <SolidColorBrush Color="Red" Opacity="25" />
+                                            </CircleGuage:Gauge.TrailBrush>
+                                        </CircleGuage:Gauge>
+                                    </StackPanel>
+                                </PivotItem>
+                            </Pivot>
+                        </Grid>
 
-                            <Grid Grid.Column="0" Background="#FFEEC923">
+                        <Grid x:Name="ReportGrid" Grid.Column="1">
+                            <Grid Background="#FFEEC923">
                                 <Pivot Title="Report">
                                     <PivotItem Header="Monthly">
                                         <Grid>
-                                            <Charting:Chart  x:Name="PieChart" HorizontalAlignment="Stretch"
+                                            <!--<Charting:Chart  x:Name="PieChart" HorizontalAlignment="Stretch"
                                                  VerticalAlignment="Stretch"
                                                  Margin="0" >
-                                                <Charting:ColumnSeries Margin="0" IndependentValuePath="Year"
+                                                <Charting:ColumnSeries Margin="0" IndependentValuePath="Monthly"
                                                         DependentValuePath="Amount" IsSelectionEnabled="True"/>
-                                            </Charting:Chart>
-                                        </Grid>
-                                    </PivotItem>
-                                    <PivotItem Header="Yearly">
-                                        <Grid>
-                                            <Charting:Chart  x:Name="YrBarChart" HorizontalAlignment="Stretch"
-                                                 VerticalAlignment="Stretch"
-                                                 Margin="0" >
-                                                <Charting:ColumnSeries Margin="0" IndependentValuePath="Year"
-                                                        DependentValuePath="Amount" IsSelectionEnabled="True"/>
-                                            </Charting:Chart>
+                                            </Charting:Chart>-->
+                                            <TextBlock x:Name="MonthlyData" Text="Monthly Data"
+                                                   FontSize="36" />
                                         </Grid>
                                     </PivotItem>
                                 </Pivot>
-
                             </Grid>
-                        </Grid>
-                        
-                        
+                        </Grid>                  
                     </Grid>
                 </ScrollViewer>
             </PivotItem>

@@ -1,5 +1,4 @@
 using InstaRichie.Models;
-using SQLite;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;

@@ -36,23 +36,52 @@ namespace InstaRichie.ViewModels
 
         public double MonthlyStatus()
         {
+            double Expense = ExpenseReport();
+            double Income = IncomeReport();
+            double Result = (Expense) + Income;
+            return Result;
+        }
+
+        public double ExpenseReport()
+        {
             try
             {
                 int currentMonth = DateTime.Now.Month;
                 int currentYear = DateTime.Now.Year;
                 int DaysinMonth = DateTime.DaysInMonth(currentYear, currentMonth);
                 conn.CreateTable<Transactions>();
-                var SUMOF = conn.Query<Transactions>("SELECT * FROM Transactions WHERE DateOfTran BETWEEN '" + currentMonth + "/01/" + currentYear + "' AND '" + currentMonth + "/" + DaysinMonth + "/" + currentYear + "'");
-                var sumProdQty1 = SUMOF.AsEnumerable().Sum(o => o.Amount);
-                double Temps = sumProdQty1;
-                return Temps;
+                var Expense = conn.Query<Transactions>("SELECT * FROM Transactions WHERE TranType = 'Expense' AND DateOfTran BETWEEN '" + currentMonth + "/01/" + currentYear + "' AND '" + currentMonth + "/" + DaysinMonth + "/" + currentYear + "'");
+                var InEXP = Expense.AsEnumerable().Sum(o => o.Amount);
+                double TempE = InEXP;
+                double SUM = InEXP;
+                return SUM;
             }
             catch (NullReferenceException)
             {
                 double Temp = 0;
                 return Temp;
             }
+        }
 
+        public double IncomeReport()
+        {
+            try
+            {
+                int currentMonth = DateTime.Now.Month;
+                int currentYear = DateTime.Now.Year;
+                int DaysinMonth = DateTime.DaysInMonth(currentYear, currentMonth);
+                conn.CreateTable<Transactions>();
+                var Expense = conn.Query<Transactions>("SELECT * FROM Transactions WHERE TranType = 'Income' AND DateOfTran BETWEEN '" + currentMonth + "/01/" + currentYear + "' AND '" + currentMonth + "/" + DaysinMonth + "/" + currentYear + "'");
+                var InEXP = Expense.AsEnumerable().Sum(o => o.Amount);
+                double TempE = InEXP;
+                double SUM = InEXP;
+                return SUM;
+            }
+            catch (NullReferenceException)
+            {
+                double Temp = 0;
+                return Temp;
+            }
         }
 
         public double AssetCalculation()
