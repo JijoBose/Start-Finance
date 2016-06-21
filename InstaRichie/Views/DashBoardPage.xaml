@@ -92,12 +92,12 @@
                                     <Grid>
                                         <StackPanel>
                                             <TextBlock x:Name="AccountTotal" Text="Account Total"                        
-                                       FontSize="30" FontWeight="Bold"/>
+                                             Style="{ThemeResource SubheaderTextBlockStyle}" FontWeight="Bold"/>
                                             <TextBlock x:Name="Assets" Text="Asset total"                          
-                                       FontSize="30" HorizontalAlignment="Left" FontWeight="Bold"/>
+                                             Style="{ThemeResource SubheaderTextBlockStyle}" HorizontalAlignment="Left" FontWeight="Bold"/>
                                         </StackPanel>
-                                        <TextBlock x:Name="FullTotal" Text="Full Total"
-                                       FontSize="40" FontWeight="Bold" VerticalAlignment="Bottom"/>
+                                        <TextBlock x:Name="FullTotal" Text="Full Total" Style="{ThemeResource HeaderTextBlockStyle}"
+                                        FontWeight="Bold" VerticalAlignment="Bottom"/>
                                     </Grid>
                                 </PivotItem>
                                
@@ -125,7 +125,7 @@
                         </Grid>
 
                         <Grid x:Name="ReportGrid" Grid.Column="1">
-                            <Grid Background="#FFEEC923">
+                            <Grid Background="#FF0C90EC">
                                 <Pivot Title="Report">
                                     <PivotItem Header="Monthly">
                                         <Grid>
