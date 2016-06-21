@@ -37,11 +37,16 @@
                 </VisualState>
                 <VisualState x:Name="VisualStateNormal">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                        <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <!--  TODO: change properties for normal view  -->
                         <!--<Setter Target="stateTextBox.Text" Value="Normal Visual State" />-->
+                        <!--<Setter Target="SecondCol.(Width)" Value="0"/>
+                        <Setter Target="ReportGrid.(Grid.Column)" Value="0"/>
+                        <Setter Target="ReportGrid.(Grid.Row)" Value="2"/>
+                        <Setter Target="CreditGrid.(Grid.Column)" Value="0"/>
+                        <Setter Target="CreditGrid.(Grid.Row)" Value="1"/>-->
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateWide">
@@ -152,6 +157,7 @@
                                 </Pivot>
                             </Grid>
                         </Grid>
+                        
                     </Grid>
                 </ScrollViewer>
             </PivotItem>
