@@ -140,7 +140,7 @@
                         <Grid x:Name="CreditGrid" Grid.Row="1">
                             <Grid Background="#FFEEC923">
                                 <Pivot Title="Financial Status">
-                                    <PivotItem Header="Credit Ratio">
+                                    <PivotItem Header="Credit Rating">
                                         <StackPanel>
                                             <TextBlock x:Name="CreditRatio" Text="Credit Ratio"
                                                    FontSize="30" Padding="0,25,0,0" 

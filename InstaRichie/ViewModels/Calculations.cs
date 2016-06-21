@@ -174,7 +174,7 @@ namespace InstaRichie.ViewModels
             }
             else
             {
-                output = "has defaulted on obligations and S&P believes that it will generally default on most or all obligations";
+                output = "has defaulted on obligations and believes that it will generally default on most or all obligations";
                 return output;
             }
         }

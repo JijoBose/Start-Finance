@@ -31,7 +31,7 @@ namespace InstaRichie.Views
             Calculations nnn = new Calculations();
             AccountTotal.Text = "Accounts: " + nnn.AccountTotal().ToString();
             Assets.Text = "Assets: " + nnn.AssetCalculation().ToString();
-            CreditRatio.Text = "Credit Ratio: " + nnn.CreditRatio().ToString();
+            CreditRatio.Text = "Credit Rating: " + nnn.CreditRatio().ToString();
             Debts.Text = "Debts: " + nnn.DebtCalculation().ToString();
             FullTotal.Text = "Total Value: " + nnn.FullValuation().ToString();
             myDebtFlow.Value = nnn.PercentageScore();
@@ -44,7 +44,7 @@ namespace InstaRichie.Views
             Calculations nnn = new Calculations();
             AccountTotal.Text = "Accounts: " + nnn.AccountTotal().ToString();
             Assets.Text = "Assets: " + nnn.AssetCalculation().ToString();
-            CreditRatio.Text = "Credit Ratio: " + nnn.CreditRatio().ToString();
+            CreditRatio.Text = "Credit Rating: " + nnn.CreditRatio().ToString();
             Debts.Text = "Debts: " + nnn.DebtCalculation().ToString();
             FullTotal.Text = "Total Value: " + nnn.FullValuation().ToString();
             myDebtFlow.Value = nnn.PercentageScore();
