@@ -7,8 +7,8 @@
     <ProjectGuid>{86228196-FC6B-4A2E-AE7E-4F0B52C8EEF1}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InstaRichie</RootNamespace>
-    <AssemblyName>InstaRichie</AssemblyName>
+    <RootNamespace>FeatWallet</RootNamespace>
+    <AssemblyName>FeatWallet</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>

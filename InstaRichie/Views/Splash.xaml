@@ -9,7 +9,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d">
 
-    <Grid Background="White">
+    <Grid Background="Orange">
 
         <Canvas x:Name="rootCanvas" HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch">
