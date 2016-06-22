@@ -41,12 +41,16 @@ namespace InstaRichie.Views
             DateStamp.Date = DateTime.Now; // gets current date and time
             TranDateStamp.Date = DateTime.Now;
 
+            Results();
+        }
+
+        public void Results()
+        {
             conn.CreateTable<Accounts>();
             var query1 = conn.Table<Accounts>();
             AccountsListSel.ItemsSource = query1.ToList();
             FromAccountsSel.ItemsSource = query1.ToList();
             ToAccountSel.ItemsSource = query1.ToList();
-
         }
 
         private async void AddData(object sender, RoutedEventArgs e)
@@ -113,12 +117,8 @@ namespace InstaRichie.Views
                         }
                     }
                 }
-                conn.CreateTable<Accounts>();
-                var query1 = conn.Table<Accounts>();
-                AccountsListSel.ItemsSource = query1.ToList();
-                FromAccountsSel.ItemsSource = query1.ToList();
-                ToAccountSel.ItemsSource = query1.ToList();
 
+                Results();
             }
             catch (Exception ex)
             {
@@ -180,11 +180,7 @@ namespace InstaRichie.Views
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
-            conn.CreateTable<Accounts>();
-            var query1 = conn.Table<Accounts>();
-            AccountsListSel.ItemsSource = query1.ToList();
-            FromAccountsSel.ItemsSource = query1.ToList();
-            ToAccountSel.ItemsSource = query1.ToList();
+            Results();
         }
 
         /// <summary>
@@ -223,16 +219,6 @@ namespace InstaRichie.Views
                 }
                 else
                 {
-                    // Transfering from
-                    //conn.CreateTable<Transactions>();
-                    //conn.Insert(new Transactions()
-                    //{
-                    //    Account = FromData,
-                    //    Amount = FMoney,
-                    //    Description = TDesc.Text,
-                    //    TranType = "Internal Transfer",
-                    //    DateOfTran = TranDateStamp.Date.Value.DateTime
-                    //});
                     var query3 = conn.Query<Accounts>("UPDATE Accounts SET InitialAmount = " + TransferToAccount() + " WHERE AccountName ='" + FromData + "'");
 
                     // Transfered TO
@@ -247,11 +233,8 @@ namespace InstaRichie.Views
                     double Exp = TINMoney + TransferToExpense();
                     var query4 = conn.Query<Accounts>("UPDATE Accounts SET InitialAmount = " + Exp + " WHERE AccountName ='" + ToData + "'");
                 }
-                conn.CreateTable<Accounts>();
-                var query1 = conn.Table<Accounts>();
-                AccountsListSel.ItemsSource = query1.ToList();
-                FromAccountsSel.ItemsSource = query1.ToList();
-                ToAccountSel.ItemsSource = query1.ToList();
+
+                Results();
 
                 MessageDialog Confirmed2 = new MessageDialog("Transfer successful");
                 await Confirmed2.ShowAsync();

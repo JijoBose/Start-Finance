@@ -35,12 +35,15 @@ namespace InstaRichie.Views
             /// Initializing a database
             conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             // Creating table
-            conn.CreateTable<Transactions>();
-            var query1 = conn.Table<Transactions>();
-            TransList.ItemsSource = query1.ToList();
+            Results();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Results();
+        }
+
+        public void Results()
         {
             conn.CreateTable<Transactions>();
             var query1 = conn.Table<Transactions>();

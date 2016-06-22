@@ -113,9 +113,32 @@ namespace InstaRichie.ViewModels
 
         public double PercentageScore()
         {
-            double TotalAssetincome = FullValuation();
-            double percentage = (-DebtCalculation() / (TotalAssetincome) * 100);
-            return percentage;
+            try
+            {
+                double TotalAssetincome = FullValuation();
+                double percentage = (-DebtCalculation() / (TotalAssetincome) * 100);
+                if((double.IsInfinity(percentage)))
+                {
+                    double Temp = 100;
+                    return Temp;
+                }
+                else if(double.IsNaN(percentage))
+                {
+                    double Temp = 0;
+                    return Temp;
+                }
+                else
+                {
+                    return percentage;
+                }
+
+            }
+            catch (DivideByZeroException)
+            {
+                double Temp = 100;
+                return Temp;
+            }
+
         }
 
         public string RatioReport()

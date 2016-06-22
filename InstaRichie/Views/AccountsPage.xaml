@@ -81,9 +81,8 @@
                 <Button x:Name="DeleteItem" Content="Delete Item" Margin="15,20,0,0" Click="DeleteItem_Click"/>
             </StackPanel>
             <ListView x:Name="TransactionList" ItemTemplate="{StaticResource TransListView}" 
-                      ScrollViewer.HorizontalScrollMode="Disabled"
-                      ScrollViewer.VerticalScrollMode="Enabled"
-                      IsSwipeEnabled="True">
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch">
                 <!--Add at the template-->
             </ListView>
         </StackPanel>

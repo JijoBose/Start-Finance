@@ -37,12 +37,20 @@ namespace InstaRichie.Views
             /// Initializing a database
             conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             // Creating table
-            conn.CreateTable<Debt>();
             DateStamp.Date = DateTime.Now; // gets current date and time
+            DateStamp1.Date = DateTime.Now;
+            Resuts();
+        }
 
+        public void Resuts()
+        {
             conn.CreateTable<Debt>();
             var query = conn.Table<Debt>();
             DebtList.ItemsSource = query.ToList();
+
+            conn.CreateTable<Accounts>();
+            var accupdate = conn.Table<Accounts>();
+            AccountSelct.ItemsSource = accupdate.ToList();
         }
 
         private async void AddData(object sender, RoutedEventArgs e)
@@ -146,9 +154,68 @@ namespace InstaRichie.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            conn.CreateTable<Debt>();
-            var query = conn.Table<Debt>();
-            DebtList.ItemsSource = query.ToList();
+            Resuts();
+        }
+
+        private async void PayDebt_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string CDay = DateStamp.Date.Value.Day.ToString();
+                string CMonth = DateStamp.Date.Value.Month.ToString();
+                string CYear = DateStamp.Date.Value.Year.ToString();
+                string FinalDate = "" + CMonth + "/" + CDay + "/" + CYear;
+                double Money = Convert.ToDouble(MoneyIn1.Text);
+
+                string AccountSelection = ((Accounts)AccountSelct.SelectedItem).AccountName;
+                if(AccountSelection.ToString() == "")
+                {
+                    MessageDialog dialog = new MessageDialog("No Account Selected", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+                else if(AccountBalance() < Money)
+                {
+                    MessageDialog dialog = new MessageDialog("You're spending more than what you have", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+                    conn.Insert(new Debt
+                    {
+                        DateofDebt = FinalDate,
+                        DebtName = Desc1.Text,
+                        DebtAmount = Money
+                    });
+                    double FinalAmount = AccountBalance() - Money;
+                    var query3 = conn.Query<Accounts>("UPDATE Accounts SET InitialAmount = " + FinalAmount + " WHERE AccountName ='" + AccountSelection + "'");
+                    MessageDialog Confirmed = new MessageDialog("Debt Paid successfully");
+                    await Confirmed.ShowAsync();
+                    Resuts();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex is FormatException)
+                {
+                    MessageDialog dialog = new MessageDialog("You forgot to enter the Value or entered an invalid data", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+                else if (ex is NullReferenceException)
+                {
+                    MessageDialog dialog = new MessageDialog("Please enter the Debt Details", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+            }
+        }
+        public double AccountBalance()
+        {
+            string AccountSelection = ((Accounts)AccountSelct.SelectedItem).AccountName;
+            conn.CreateTable<Accounts>();
+            var query12 = conn.Query<Accounts>("SELECT * FROM Accounts WHERE AccountName ='" + AccountSelection + "'");
+            var sumProd = query12.AsEnumerable().Sum(o => o.InitialAmount);
+            double Total = sumProd;
+            return Total;
         }
     }
 }

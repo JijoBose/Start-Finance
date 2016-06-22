@@ -27,19 +27,15 @@ namespace InstaRichie.Views
         public DashBoardPage()
         {
             this.InitializeComponent();
-
-            Calculations nnn = new Calculations();
-            AccountTotal.Text = "Accounts: " + nnn.AccountTotal().ToString();
-            Assets.Text = "Assets: " + nnn.AssetCalculation().ToString();
-            CreditRatio.Text = "Credit Rating: " + nnn.CreditRatio().ToString();
-            Debts.Text = "Debts: " + nnn.DebtCalculation().ToString();
-            FullTotal.Text = "Total Value: " + nnn.FullValuation().ToString();
-            myDebtFlow.Value = nnn.PercentageScore();
-            MonthlyData.Text = "Monthly : " + nnn.MonthlyStatus().ToString();
-            RatioReportTxt.Text = nnn.RatioReport();
+            Results();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Results();
+        }
+
+        public void Results()
         {
             Calculations nnn = new Calculations();
             AccountTotal.Text = "Accounts: " + nnn.AccountTotal().ToString();
@@ -48,7 +44,7 @@ namespace InstaRichie.Views
             Debts.Text = "Debts: " + nnn.DebtCalculation().ToString();
             FullTotal.Text = "Total Value: " + nnn.FullValuation().ToString();
             myDebtFlow.Value = nnn.PercentageScore();
-            MonthlyData.Text = nnn.MonthlyStatus().ToString();
+            MonthlyData.Text = "Monthly : " + nnn.MonthlyStatus().ToString();
             RatioReportTxt.Text = nnn.RatioReport();
         }
 

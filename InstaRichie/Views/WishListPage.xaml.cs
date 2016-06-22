@@ -36,6 +36,11 @@ namespace InstaRichie.Views
             /// Initializing a database
             conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             // Creating table
+            Results();
+        }
+
+        public void Results()
+        {
             conn.CreateTable<WishList>();
             var query1 = conn.Table<WishList>();
             WishListView.ItemsSource = query1.ToList();
@@ -60,9 +65,7 @@ namespace InstaRichie.Views
                         Money = TempMoney
                     });
                     // Creating table
-                    conn.CreateTable<WishList>();
-                    var query1 = conn.Table<WishList>();
-                    WishListView.ItemsSource = query1.ToList();
+                    Results();
                 }
             }
             catch (Exception ex)
@@ -111,10 +114,7 @@ namespace InstaRichie.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            conn.CreateTable<WishList>();
-            var query1 = conn.Table<WishList>();
-            WishListView.ItemsSource = query1.ToList();
-
+            Results();
         }
     }
 }

@@ -36,6 +36,12 @@ namespace InstaRichie.Views
             conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
 
             // Creating table
+            Results();
+        }
+
+        public void Results()
+        {
+            // Creating table
             conn.CreateTable<Accounts>();
             var query = conn.Table<Accounts>();
             TransactionList.ItemsSource = query.ToList();
@@ -61,10 +67,7 @@ namespace InstaRichie.Views
                         AccountName = AccName.Text,
                         InitialAmount = Convert.ToDouble(MoneyIn.Text)
                     });
-
-                    conn.CreateTable<Accounts>();
-                    var query = conn.Table<Accounts>();
-                    TransactionList.ItemsSource = query.ToList();
+                    Results();
                 }
 
             }
@@ -86,12 +89,6 @@ namespace InstaRichie.Views
                 }
 
             }
-            // C# 6.0 way of exceptions
-            //catch(Exception ex) when(ex is FormatException || ex is SQLiteException)
-            //{
-            //    MessageDialog dialog = new MessageDialog("You forgot to enter the Amount or entered an invalid data", "Oops..!");
-            //    await dialog.ShowAsync();
-            //}
         }
 
         // Clears the fields
@@ -104,9 +101,7 @@ namespace InstaRichie.Views
         // Displays the data when navigation between pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            conn.CreateTable<Accounts>();
-            var query = conn.Table<Accounts>();
-            TransactionList.ItemsSource = query.ToList();
+            Results();
         }
 
         private async void DeleteItem_Click(object sender, RoutedEventArgs e)
@@ -131,10 +126,7 @@ namespace InstaRichie.Views
                 {
                     string AccountsLabel = ((Accounts)TransactionList.SelectedItem).AccountName;
                     var querydel = conn.Query<Accounts>("DELETE FROM Accounts WHERE AccountName='" + AccountsLabel + "'");
-                    conn.CreateTable<Accounts>();
-                    var query = conn.Table<Accounts>();
-                    TransactionList.ItemsSource = query.ToList();
-                    /// wrong query
+                    Results();
                     var querytable = conn.Query<Transactions>("DELETE FROM Transactions WHERE Account='" + AccountsLabel + "'");
                     conn.CreateTable<Transactions>();
                 }

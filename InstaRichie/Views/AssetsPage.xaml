@@ -83,7 +83,9 @@
                 <Button x:Name="AddAccount" Content="Add Asset" Margin="10,0,20,0" Click="AddData"/>
                 <Button x:Name="DeleteAccout" Content="Delete Asset" Click="DeleteAccout_Click"/>
             </StackPanel>
-            <ListView x:Name="AssetListView" ItemTemplate="{StaticResource AssetListDatavalue}">
+            <ListView x:Name="AssetListView" HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                      ItemTemplate="{StaticResource AssetListDatavalue}">
                 <!--Add here-->
             </ListView>
         </StackPanel>

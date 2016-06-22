@@ -15,7 +15,7 @@ namespace InstaRichie.Models
         [NotNull]
         public string DateofDebt { get; set; }
 
-        [Unique]
+        [NotNull]
         public string DebtName { get; set; }
 
         [NotNull]

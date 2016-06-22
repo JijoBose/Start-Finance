@@ -90,7 +90,9 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <ListView x:Name="WishListView" ItemTemplate="{StaticResource WishListDataViews}">
+        <ListView x:Name="WishListView" HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  ItemTemplate="{StaticResource WishListDataViews}">
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
         </ListView>
 

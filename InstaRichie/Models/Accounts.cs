@@ -18,6 +18,5 @@ namespace InstaRichie.Models
         [NotNull]
         public double InitialAmount { get; set; }
 
-
     }
 }

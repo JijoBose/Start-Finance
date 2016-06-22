@@ -35,6 +35,11 @@ namespace InstaRichie.Views
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             /// Initializing a database
             conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
+            Results();
+        }
+
+        public void Results()
+        {
             // Creating table
             conn.CreateTable<Assets>();
 
@@ -59,9 +64,7 @@ namespace InstaRichie.Views
                         AssetName = AssetNameText.Text,
                         AssetValue = Convert.ToDouble(AssetValue.Text)
                     });
-
-                    var query = conn.Table<Assets>();
-                    AssetListView.ItemsSource = query.ToList();
+                    Results();
                 }
             }
             catch (Exception ex)
@@ -90,10 +93,7 @@ namespace InstaRichie.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            conn.CreateTable<Assets>();
-            /// Refresh Data
-            var query = conn.Table<Assets>();
-            AssetListView.ItemsSource = query.ToList();
+            Results();
         }
 
         private async void DeleteAccout_Click(object sender, RoutedEventArgs e)
