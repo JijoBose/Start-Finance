@@ -63,45 +63,21 @@ namespace InstaRichie.Views
                 string CYear = DateStamp.Date.Value.Year.ToString();
                 string FinalDate = "" + CMonth + "/" + CDay + "/" + CYear;
 
-                if (DebtModeSelect.SelectionBoxItem.ToString() == "Add Debts")
+                if (Desc.Text == "")
                 {
-                    if (Desc.Text == "")
-                    {
-                        MessageDialog dialog = new MessageDialog("Not entered Debt name");
-                        await dialog.ShowAsync();
-                    }
-                    else
-                    {
-                        double Money = Convert.ToDouble(MoneyIn.Text);
-                        double Dmoney = 0 - Money;
-                        conn.Insert(new Debt()
-                        {
-                            DateofDebt = FinalDate,
-                            DebtName = Desc.Text,
-                            DebtAmount = Dmoney
-                        });
-                    }
+                  MessageDialog dialog = new MessageDialog("Not entered Debt name");
+                  await dialog.ShowAsync();
                 }
                 else
                 {
-                    double Money = Convert.ToDouble(MoneyIn.Text);
-                    double Dmoney = Money;
-                    double DebtAmt = nnn.DebtCalculation() + Dmoney;
-
-                    if (DebtAmt > 0)
-                    {
-                        MessageDialog dialog = new MessageDialog("You Entered more than the debt value " + nnn.DebtCalculation() + " ", "Oops..!");
-                        await dialog.ShowAsync();
-                    }
-                    else
-                    {
-                        conn.Insert(new Debt()
-                        {
-                            DateofDebt = FinalDate,
-                            DebtName = Desc.Text,
-                            DebtAmount = Dmoney
-                        });
-                    }
+                   double Money = Convert.ToDouble(MoneyIn.Text);
+                   double Dmoney = 0 - Money;
+                   conn.Insert(new Debt()
+                   {
+                     DateofDebt = FinalDate,
+                     DebtName = Desc.Text,
+                     DebtAmount = Dmoney
+                   });
                 }
                 conn.CreateTable<Debt>();
                 var query = conn.Table<Debt>();
@@ -161,11 +137,14 @@ namespace InstaRichie.Views
         {
             try
             {
+                Calculations nnn = new  Calculations();
                 string CDay = DateStamp.Date.Value.Day.ToString();
                 string CMonth = DateStamp.Date.Value.Month.ToString();
                 string CYear = DateStamp.Date.Value.Year.ToString();
                 string FinalDate = "" + CMonth + "/" + CDay + "/" + CYear;
                 double Money = Convert.ToDouble(MoneyIn1.Text);
+                double DebtBalance = nnn.DebtCalculation();
+                double Dmoney = DebtBalance + Money;
 
                 string AccountSelection = ((Accounts)AccountSelct.SelectedItem).AccountName;
                 if(AccountSelection.ToString() == "")
@@ -176,6 +155,11 @@ namespace InstaRichie.Views
                 else if(AccountBalance() < Money)
                 {
                     MessageDialog dialog = new MessageDialog("You're spending more than what you have", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+                else if(Dmoney > 0)
+                {
+                    MessageDialog dialog = new MessageDialog("You can't pay more than the Debt Amount : " + DebtBalance + "", "Oops..!");
                     await dialog.ShowAsync();
                 }
                 else

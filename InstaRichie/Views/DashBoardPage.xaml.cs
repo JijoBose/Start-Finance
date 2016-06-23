@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using InstaRichie.ViewModels;
+using SQLite.Net;
+using InstaRichie.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,10 +25,14 @@ namespace InstaRichie.Views
     /// </summary>
     public sealed partial class DashBoardPage : Page
     {
+        SQLiteConnection conn; // adding an SQLite connection
+        string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Findata.sqlite");
 
         public DashBoardPage()
         {
             this.InitializeComponent();
+            conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
+
             Results();
         }
 
@@ -46,6 +52,10 @@ namespace InstaRichie.Views
             myDebtFlow.Value = nnn.PercentageScore();
             MonthlyData.Text = "Monthly : " + nnn.MonthlyStatus().ToString();
             RatioReportTxt.Text = nnn.RatioReport();
+
+            conn.CreateTable<Assets>();
+            var query1 = conn.Table<Assets>();
+            Assetme.ItemsSource = query1.ToList();
         }
 
     }

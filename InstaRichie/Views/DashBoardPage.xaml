@@ -17,6 +17,17 @@
         <vm:MainPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
 
+    <Page.Resources>
+        <DataTemplate x:Key="AssetListDataViews">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding AssetName}" Style="{ThemeResource SubheaderTextBlockStyle}" Padding="0,0,15,0"/>
+                    <TextBlock Text="{Binding AssetValue}" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    
     <RelativePanel Background="Orange">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
@@ -34,7 +45,6 @@
                         <Setter Target="CreditGrid.(Grid.Row)" Value="1"/>
                         <Setter Target="WishList.(Grid.Row)" Value="3"/>
                         <Setter Target="WishList.(Grid.Column)" Value="0"/>
-
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateNormal">
@@ -44,6 +54,7 @@
                     <VisualState.Setters>
                         <!--  TODO: change properties for normal view  -->
                         <!--<Setter Target="stateTextBox.Text" Value="Normal Visual State" />-->
+                        <Setter Target="TopFourCols.(Height)" Value="0"/>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateWide">
@@ -53,6 +64,7 @@
                     <VisualState.Setters>
                         <!--  TODO: change properties for wide view  -->
                         <!--<Setter Target="stateTextBox.Text" Value="Wide Visual State" />-->
+                        <Setter Target="TopFourCols.(Height)" Value="0"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -158,10 +170,17 @@
                         </Grid>
 
                         <Grid x:Name="WishList" Grid.Row="1" Grid.Column="1">
-                            <StackPanel>
-                                <TextBlock x:Name="Demo" FontSize="40"
-                                    Text=" More Details to be added here."/>
-                            </StackPanel>
+                            <Pivot>
+                                <PivotItem Header="Assets List">
+                                    <Grid>
+                                        <ListView x:Name="Assetme" HorizontalAlignment="Stretch"
+                                      VerticalAlignment="Stretch" BorderBrush="White" BorderThickness="2"
+                                      ItemTemplate="{StaticResource AssetListDataViews}">
+                                        </ListView>
+                                    </Grid>
+                                </PivotItem>
+                            </Pivot>
+
                         </Grid>
                     </Grid>
                 </ScrollViewer>

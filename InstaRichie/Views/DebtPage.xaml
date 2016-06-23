@@ -98,11 +98,6 @@
                     <CalendarDatePicker x:Name="DateStamp" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     <TextBox x:Name="MoneyIn" TextWrapping="Wrap" InputScope="Number" Header="Amount"/>
                     <TextBox x:Name="Desc" Header="Debt Name or Details"/>
-                    <ComboBox x:Name="DebtModeSelect" Header="Add or Pay Debts" HorizontalAlignment="Stretch"
-                              VerticalAlignment="Stretch" SelectedIndex="0">
-                        <ComboBoxItem Content="Add Debts" Height="100" Width="100"/>
-                        <ComboBoxItem Content="Pay Debts" Height="100" Width="100"/>
-                    </ComboBox>
                     <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                         <Button Content="Add Debts" Margin="10,0,30,0"  Click="AddData"/>
                         <Button Content="Delete" Margin="10,0,30,0" Click="ClearFileds_Click"/>
