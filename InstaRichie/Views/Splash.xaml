@@ -30,7 +30,7 @@
         <ProgressRing x:Name="progressRing" Width="50"
                       Height="50" HorizontalAlignment="Center"
                       VerticalAlignment="Center"
-                      Foreground="Blue"
+                      Foreground="White"
                       IsActive="True" RenderTransformOrigin="0.5,0.5">
             <ProgressRing.RenderTransform>
                 <CompositeTransform x:Name="ProgressTransform" TranslateY="120" />

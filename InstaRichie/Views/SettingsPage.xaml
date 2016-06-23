@@ -103,9 +103,7 @@
                                 RelativePanel.AlignBottomWith="BusyTextTextBox"
                                 RelativePanel.RightOf="BusyTextTextBox" />-->
 
-
                     </RelativePanel>
-
                 </ScrollViewer>
             </PivotItem>
 
@@ -140,7 +138,7 @@
                             RelativePanel.AlignRightWithPanel="True"
                             RelativePanel.AlignTopWithPanel="True">
                         <Border.Background>
-                            <SolidColorBrush Color="{ThemeResource SystemAccentColor}" />
+                            <SolidColorBrush Color="Orange" />
                         </Border.Background>
                         <Image Margin="12" Source="{Binding Logo}"
                                Stretch="None" />

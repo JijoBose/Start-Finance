@@ -20,11 +20,12 @@
                                           >
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48" Height="48"
-                                Symbol="Home" />
+                		Symbol="Home" />
                     <TextBlock Margin="12,0,0,0" VerticalAlignment="Center"
                                Text="DashBoard" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+            
             <!--  Transaction List button  -->
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:TransactionListPage" 
                                           AutomationProperties.Name="Jerry"
@@ -67,7 +68,7 @@
                                           >
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48" Height="48"
-                                Symbol="Filter" />
+                		Symbol="StopSlideShow" />
                     <TextBlock Margin="12,0,0,0" VerticalAlignment="Center"
                                Text="Assets" />
                 </StackPanel>
@@ -79,7 +80,7 @@
                                           >
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48" Height="48"
-                                Symbol="Account" />
+                		Symbol="Account" />
                     <TextBlock Margin="12,0,0,0" VerticalAlignment="Center"
                                Text="Accounts" />
                 </StackPanel>
@@ -92,7 +93,7 @@
                                           >
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48" Height="48"
-                                Symbol="Like" />
+                		Symbol="Bullets" />
                     <TextBlock Margin="12,0,0,0" VerticalAlignment="Center"
                                Text="WishList" />
                 </StackPanel>
