@@ -232,12 +232,11 @@ namespace InstaRichie.Views
                     });
                     double Exp = TINMoney + TransferToExpense();
                     var query4 = conn.Query<Accounts>("UPDATE Accounts SET InitialAmount = " + Exp + " WHERE AccountName ='" + ToData + "'");
+
+                    MessageDialog Confirmed2 = new MessageDialog("Transfer successful");
+                    await Confirmed2.ShowAsync();
                 }
-
                 Results();
-
-                MessageDialog Confirmed2 = new MessageDialog("Transfer successful");
-                await Confirmed2.ShowAsync();
             }
             catch (Exception ex)
             {
