@@ -89,10 +89,33 @@
 
         </controls:PageHeader>
 
+        <controls:PageHeader x:Name="AddDebtFooter" RelativePanel.AlignLeftWithPanel="True"
+			RelativePanel.AlignRightWithPanel="True"
+			RelativePanel.AlignBottomWithPanel="True">
+            <!--  Primary commands  -->
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Add" Label="Add Debt" Click="AddData"/>
+                <AppBarButton Icon="Delete" Label="Delete Debt" Click="ClearFileds_Click"/>
+            </controls:PageHeader.PrimaryCommands>
+        </controls:PageHeader>
+
+        <controls:PageHeader x:Name="PayDebtFooter" RelativePanel.AlignLeftWithPanel="True"
+			RelativePanel.AlignRightWithPanel="True"
+			RelativePanel.AlignBottomWithPanel="True">
+
+            <!--  Primary commands  -->
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Remove" Label="Pay Debt" Click="PayDebt_Click"/>
+                <AppBarButton Icon="Delete" Label="Delete Debt" Click="ClearFileds_Click"/>
+            </controls:PageHeader.PrimaryCommands>
+
+        </controls:PageHeader>
+
+
         <!--  page content  -->
-        <Pivot x:Name="DebtPivot">
+        <Pivot x:Name="DebtPivot" SelectionChanged="DebtPivot_SelectionChanged">
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
-            <PivotItem Header="Add Debt">
+            <PivotItem x:Name="AddDebt" Header="Add Debt">
                 <StackPanel x:Name="pageStart" Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
                     <RelativePanel.Below>pageHeader</RelativePanel.Below>
                     <CalendarDatePicker x:Name="DateStamp" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
@@ -113,10 +136,6 @@
                     <ComboBox x:Name="AccountSelct" Header="Account to Pay" HorizontalAlignment="Stretch"
                               VerticalAlignment="Stretch" ItemTemplate="{StaticResource AccountSelectionData}">
                     </ComboBox>
-                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                        <Button x:Name="PayDebt" Content="Pay Debts" Margin="10,0,30,0" Click="PayDebt_Click"/>
-                        <Button Content="Delete" Margin="10,0,30,0" Click="ClearFileds_Click"/>
-                    </StackPanel>
                 </StackPanel>      
             </PivotItem>
         </Pivot>

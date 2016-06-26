@@ -127,8 +127,8 @@ namespace InstaRichie.Views
                     string AccountsLabel = ((Accounts)TransactionList.SelectedItem).AccountName;
                     var querydel = conn.Query<Accounts>("DELETE FROM Accounts WHERE AccountName='" + AccountsLabel + "'");
                     Results();
-                    var querytable = conn.Query<Transactions>("DELETE FROM Transactions WHERE Account='" + AccountsLabel + "'");
                     conn.CreateTable<Transactions>();
+                    var querytable = conn.Query<Transactions>("DELETE FROM Transactions WHERE Account='" + AccountsLabel + "'");
                 }
                 catch (NullReferenceException)
                 {

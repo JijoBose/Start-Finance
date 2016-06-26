@@ -72,14 +72,16 @@
             </controls:PageHeader.SecondaryCommands>
         </controls:PageHeader>
 
-        <StackPanel x:Name="PageStart" Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
+        <StackPanel x:Name="PageStart" Grid.Row="1" VerticalAlignment="Top"
+                    HorizontalAlignment="Stretch" Width="300"
+                    Orientation="Vertical" Margin="10,5,10,0">
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
             <TextBox x:Name="AccName" Header="Account Name" TextWrapping="Wrap"/>
             <TextBox x:Name="MoneyIn" Header="Initial Amount" InputScope="Number" TextWrapping="Wrap"/>
-            <StackPanel Orientation="Horizontal">
+            <!--<StackPanel Orientation="Horizontal">
                 <Button x:Name="AddWish" Content="Add Account" Margin="0,20,0,0" Click="AppBarButton_Click"/>
                 <Button x:Name="DeleteItem" Content="Delete Item" Margin="15,20,0,0" Click="DeleteItem_Click"/>
-            </StackPanel>
+            </StackPanel>-->
             <ListView x:Name="TransactionList" ItemTemplate="{StaticResource TransListView}" 
                       HorizontalAlignment="Stretch"
                       VerticalAlignment="Stretch">
@@ -87,5 +89,15 @@
             </ListView>
         </StackPanel>
 
+
+        <controls:PageHeader x:Name="pageFooter" RelativePanel.AlignLeftWithPanel="True"
+			RelativePanel.AlignRightWithPanel="True"
+			RelativePanel.AlignBottomWithPanel="True">
+            <!--  secondary commands  -->
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Add" Label="Add Account" Click="AppBarButton_Click"/>
+                <AppBarButton Icon="Delete" Label="Delete Account" Click="DeleteItem_Click"/>
+            </controls:PageHeader.PrimaryCommands>
+        </controls:PageHeader>
     </RelativePanel>
 </Page>

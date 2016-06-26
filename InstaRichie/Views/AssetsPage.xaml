@@ -74,15 +74,29 @@
 
         </controls:PageHeader>
 
+        <controls:PageHeader x:Name="pageFooter" RelativePanel.AlignLeftWithPanel="True"
+			RelativePanel.AlignRightWithPanel="True"
+			RelativePanel.AlignBottomWithPanel="True">
+
+            <!--  primary commands  -->
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Add" Label="Add Asset" Click="AddData" />
+                <AppBarButton Icon="Delete" Label="Delete Asset" Click="DeleteAccout_Click" />
+            </controls:PageHeader.PrimaryCommands>
+
+        </controls:PageHeader>
+
         <!--  page content  -->
-        <StackPanel x:Name="pageStart" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
+        <StackPanel x:Name="pageStart" VerticalAlignment="Top"
+                    Width="300"
+                    Orientation="Vertical" Margin="10,5,10,0">
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
             <TextBox x:Name="AssetNameText" Header="Asset Name"/>
             <TextBox x:Name="AssetValue" TextWrapping="Wrap" InputScope="Number" Header="Asset Value"/>
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <!--<StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Button x:Name="AddAccount" Content="Add Asset" Margin="10,0,20,0" Click="AddData"/>
                 <Button x:Name="DeleteAccout" Content="Delete Asset" Click="DeleteAccout_Click"/>
-            </StackPanel>
+            </StackPanel>-->
             <ListView x:Name="AssetListView" HorizontalAlignment="Stretch"
                       VerticalAlignment="Stretch"
                       ItemTemplate="{StaticResource AssetListDatavalue}">

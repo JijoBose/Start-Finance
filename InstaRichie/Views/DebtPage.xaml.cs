@@ -201,5 +201,20 @@ namespace InstaRichie.Views
             double Total = sumProd;
             return Total;
         }
+
+        private void DebtPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int no = DebtPivot.SelectedIndex;
+            if(no == 0)
+            {
+                AddDebtFooter.Visibility = Visibility.Visible;
+                PayDebtFooter.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                PayDebtFooter.Visibility = Visibility.Visible;
+                AddDebtFooter.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

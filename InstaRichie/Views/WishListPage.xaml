@@ -77,17 +77,24 @@
 
         </controls:PageHeader>
 
+        <controls:PageHeader x:Name="pageFooter" RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignBottomWithPanel="True">
+            <!--primary commands-->
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Add" Label="Add WishList" Click="AddWish_Click"/>
+                <AppBarButton Icon="Delete" Label="Delete WishList" Click="DeleteItem_Click"/>
+            </controls:PageHeader.PrimaryCommands>
+        </controls:PageHeader>
+
         <!--Page Conetents start here-->
 
         <Grid x:Name="pageStart" Grid.Row="1">
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
-            <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
+            <StackPanel Grid.Row="1" VerticalAlignment="Top" Width="300"
+                        Orientation="Vertical" Margin="10,5,10,0">
                 <TextBox x:Name="_Wishname" Header="Description"/>
                 <TextBox x:Name="MoneyIn" Header="Amount" TextWrapping="Wrap" InputScope="Number"/>
-                <StackPanel Orientation="Horizontal">
-                    <Button x:Name="AddWish" Content="Add WishList" Margin="0,20,0,0" Click="AddWish_Click"/>
-                    <Button x:Name="DeleteItem" Content="Delete Item" Margin="15,20,0,0" Click="DeleteItem_Click"/>
-                </StackPanel>
             </StackPanel>
         </Grid>
         <ListView x:Name="WishListView" HorizontalAlignment="Stretch"

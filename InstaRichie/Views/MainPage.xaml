@@ -61,6 +61,17 @@
 
         </controls:PageHeader>
 
+        <controls:PageHeader x:Name="pageFooter" RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignBottomWithPanel="True">
+            <!--  primary commands  -->
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Add" Label="Add Transaction" />
+                <AppBarButton Icon="Delete" Label="Delete"/>
+            </controls:PageHeader.PrimaryCommands>
+
+        </controls:PageHeader>
+        
         <controls:Resizer x:Name="parameterResizer" Margin="16,16,16,0"
                           RelativePanel.AlignLeftWithPanel="True"
                           RelativePanel.Below="pageHeader">
