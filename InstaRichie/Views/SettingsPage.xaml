@@ -112,7 +112,7 @@
                        Header="Privacy statement" Padding="0">
                 <ScrollViewer Margin="0,0,-12,0" VerticalScrollBarVisibility="Auto">
                     <TextBlock Margin="0,12,24,12" LineHeight="24"
-                               TextWrapping="Wrap">Your privacy is important to JustWallet.  This privacy statement provides information about the personal information that JustWallet collects, and the ways in which JustWallet uses that personal information.
+                               TextWrapping="Wrap">Your privacy is important to JustWallet.  This privacy statement provides information about the personal information that the App collects, and the ways in which it uses that personal information.
                         <LineBreak />
                         <LineBreak />
                         <Bold>Data Collection</Bold>
@@ -167,7 +167,7 @@
                                Margin="0,60,0,0" FontSize="25"
                                RelativePanel.Below="VersionTextBlock"/>
                     
-                    <StackPanel Orientation="Vertical">
+                    <StackPanel x:Name="CreditsInfo" Orientation="Vertical">
                         <RelativePanel.AlignLeftWithPanel>True</RelativePanel.AlignLeftWithPanel>
                         <RelativePanel.Below>Credits</RelativePanel.Below>
                         <TextBlock Text="This App wouldn't be possible without the help of these Libraries."
@@ -186,6 +186,14 @@
                             <Hyperlink NavigateUri="https://github.com/xyzzer/WinRTXamlToolkit">
                                 WinRTXAMLToolKit
                             </Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,15,0,0">
+                        <RelativePanel.AlignLeftWithPanel>True</RelativePanel.AlignLeftWithPanel>
+                        <RelativePanel.Below>CreditsInfo</RelativePanel.Below>
+                        <TextBlock Text="Disclaimer :" FontSize="25"/>
+                        <TextBlock Style="{ThemeResource BaseTextBlockStyle}">
+                            <Run Text="Credit Ratings are for informative purposes only and are calculated depending on various factors such as Debt, Assets and Account. Please rely on professional services."/>
                         </TextBlock>
                     </StackPanel>
                 </RelativePanel>

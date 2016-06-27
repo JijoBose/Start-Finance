@@ -145,7 +145,7 @@
                                 <Pivot Title="Financial Status">
                                     <PivotItem Header="Credit Rating">
                                         <StackPanel>
-                                            <TextBlock x:Name="CreditRatio" Text="Credit Ratio"
+                                            <TextBlock x:Name="CreditRatio" Text="Credit Ratings"
                                                    FontSize="30" Padding="0,25,0,0" 
                                                    FontWeight="Bold"/>
                                             <TextBlock x:Name="RatioReportTxt" TextWrapping="Wrap"
