@@ -295,5 +295,20 @@ namespace InstaRichie.Views
             double FinalTot = sumProdQty1;
             return FinalTot;
         }
+
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int num = pagecontent.SelectedIndex;
+            if(num == 0)
+            {
+                InternFooter.Visibility = Visibility.Collapsed;
+                pageFooter.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                pageFooter.Visibility = Visibility.Collapsed;
+                InternFooter.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

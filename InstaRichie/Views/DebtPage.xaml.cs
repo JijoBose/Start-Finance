@@ -46,6 +46,7 @@ namespace InstaRichie.Views
         {
             conn.CreateTable<Debt>();
             var query = conn.Table<Debt>();
+            DebtList1.ItemsSource = query.ToList();
             DebtList.ItemsSource = query.ToList();
 
             conn.CreateTable<Accounts>();
@@ -79,9 +80,7 @@ namespace InstaRichie.Views
                      DebtAmount = Dmoney
                    });
                 }
-                conn.CreateTable<Debt>();
-                var query = conn.Table<Debt>();
-                DebtList.ItemsSource = query.ToList();
+                Resuts();
             }
             catch (Exception ex)
             {
@@ -102,7 +101,7 @@ namespace InstaRichie.Views
         {
             try
             {
-                string AccSelection = ((Debt)DebtList.SelectedItem).DebtName;
+                string AccSelection = ((Debt)DebtList1.SelectedItem).DebtName;
                 if (AccSelection == "")
                 {
                     MessageDialog dialog = new MessageDialog("Not selected the Item", "Oops..!");
@@ -113,12 +112,12 @@ namespace InstaRichie.Views
                     conn.CreateTable<Debt>();
                     var query1 = conn.Table<Debt>();
                     var query3 = conn.Query<Debt>("DELETE FROM Debt WHERE DebtName ='" + AccSelection + "'");
-                    DebtList.ItemsSource = query1.ToList();
+                    DebtList1.ItemsSource = query1.ToList();
                 }
 
                 conn.CreateTable<Debt>();
                 var query = conn.Table<Debt>();
-                DebtList.ItemsSource = query.ToList();
+                DebtList1.ItemsSource = query.ToList();
 
             }
             catch (NullReferenceException)

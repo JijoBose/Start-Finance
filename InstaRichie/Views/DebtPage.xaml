@@ -116,34 +116,55 @@
         <Pivot x:Name="DebtPivot" SelectionChanged="DebtPivot_SelectionChanged">
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
             <PivotItem x:Name="AddDebt" Header="Add Debt">
-                <StackPanel x:Name="pageStart" Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
-                    <RelativePanel.Below>pageHeader</RelativePanel.Below>
-                    <CalendarDatePicker x:Name="DateStamp" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    <TextBox x:Name="MoneyIn" TextWrapping="Wrap" InputScope="Number" Header="Amount"/>
-                    <TextBox x:Name="Desc" Header="Debt Name or Details"/>
-                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                        <Button Content="Add Debts" Margin="10,0,30,0"  Click="AddData"/>
-                        <Button Content="Delete" Margin="10,0,30,0" Click="ClearFileds_Click"/>
+                <RelativePanel.Above>AddDebtFooter</RelativePanel.Above>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel x:Name="pageStart" Grid.Row="0" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
+                        <RelativePanel.Below>pageHeader</RelativePanel.Below>
+                        <CalendarDatePicker x:Name="DateStamp" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBox x:Name="MoneyIn" TextWrapping="Wrap" InputScope="Number" Header="Amount"/>
+                        <TextBox x:Name="Desc" Header="Debt Name or Details"/>
                     </StackPanel>
-                </StackPanel>
+                    <ListView x:Name="DebtList1" Margin="10,5,10,0" Grid.Row="1"
+                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                ItemTemplate="{StaticResource DebtListPage}">
+                        <RelativePanel.Below>pageStart</RelativePanel.Below>
+                        <RelativePanel.Above>AddDebtFooter</RelativePanel.Above>
+                        <!--Populated via C# -->
+                    </ListView>
+                </Grid>
             </PivotItem>
+            
             <PivotItem Header="Pay Debts">
-                <StackPanel x:Name="pageStart1" Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
-                    <RelativePanel.Below>pageHeader</RelativePanel.Below>
-                    <CalendarDatePicker x:Name="DateStamp1" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                    <TextBox x:Name="MoneyIn1" TextWrapping="Wrap" InputScope="Number" Header="Amount"/>
-                    <TextBox x:Name="Desc1" Header="Debt Name or Details"/>
-                    <ComboBox x:Name="AccountSelct" Header="Account to Pay" HorizontalAlignment="Stretch"
+                <RelativePanel.Above>PayDebtFooter</RelativePanel.Above>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel x:Name="pageStart1" Grid.Row="0" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
+                        <CalendarDatePicker x:Name="DateStamp1" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBox x:Name="MoneyIn1" TextWrapping="Wrap" InputScope="Number" Header="Amount"/>
+                        <TextBox x:Name="Desc1" Header="Debt Name or Details"/>
+                        <ComboBox x:Name="AccountSelct" Header="Account to Pay" HorizontalAlignment="Stretch"
                               VerticalAlignment="Stretch" ItemTemplate="{StaticResource AccountSelectionData}">
-                    </ComboBox>
-                </StackPanel>      
+                        </ComboBox>
+                    </StackPanel>
+                    <ListView x:Name="DebtList" Grid.Row="1"
+                                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                ItemTemplate="{StaticResource DebtListPage}">
+                        <RelativePanel.Below>pageStart1</RelativePanel.Below>
+                        <RelativePanel.Above>PayDebtFooter</RelativePanel.Above>
+                        <!--Populated via C# -->
+                    </ListView>
+                </Grid>
             </PivotItem>
         </Pivot>
-        <ListView x:Name="DebtList" Margin="10,5,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                  ItemTemplate="{StaticResource DebtListPage}">
-            <RelativePanel.Below>DebtPivot</RelativePanel.Below>
-            <!--Populated via C# -->
-        </ListView>
+
 
     </RelativePanel>
 </Page>

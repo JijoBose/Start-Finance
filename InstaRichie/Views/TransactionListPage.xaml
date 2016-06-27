@@ -64,8 +64,19 @@
             </controls:PageHeader.SecondaryCommands>
         </controls:PageHeader>
 
+        <controls:PageHeader x:Name="pageFooter" RelativePanel.AlignLeftWithPanel="True"
+			RelativePanel.AlignRightWithPanel="True"
+			RelativePanel.AlignBottomWithPanel="True">
+
+            <!--  secondary commands  -->
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Delete" Label="Delete"/>
+            </controls:PageHeader.PrimaryCommands>
+        </controls:PageHeader>
+
         <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,5,10,0">
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
+            <RelativePanel.Above>pageFooter</RelativePanel.Above>
             <ListView x:Name="TransList" ItemTemplate="{StaticResource TincanList}"/>
         </StackPanel>
 

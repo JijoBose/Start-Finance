@@ -76,8 +76,29 @@
 
         </controls:PageHeader>
 
+        <controls:PageHeader x:Name="pageFooter" RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignBottomWithPanel="True">
+
+            <!--  secondary commands  -->
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Add" Label="Add Transaction" Click="AddData"/>
+            </controls:PageHeader.PrimaryCommands>
+
+        </controls:PageHeader>
+        <controls:PageHeader x:Name="InternFooter" RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignBottomWithPanel="True">
+
+            <!--  secondary commands  -->
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Switch" Label="Transfer" Click="Transfer_Click"/>
+            </controls:PageHeader.PrimaryCommands>
+
+        </controls:PageHeader>
+
         <!--Page Conetents start here-->
-        <Pivot Grid.Row="1">
+        <Pivot Grid.Row="1" x:Name="pagecontent" SelectionChanged="Pivot_SelectionChanged">
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
             <PivotItem Header="Add Transaction">
                 <Grid>

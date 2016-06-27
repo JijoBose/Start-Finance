@@ -88,8 +88,32 @@
         </controls:PageHeader>
 
         <!--Page Conetents start here-->
-
-        <Grid x:Name="pageStart" Grid.Row="1">
+        <Pivot>
+            <RelativePanel.Below>pageHeader</RelativePanel.Below>
+            <RelativePanel.Above>pageFooter</RelativePanel.Above>
+            <PivotItem Header="Add WishList">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0"
+                            Orientation="Vertical" VerticalAlignment="Stretch" 
+                            HorizontalAlignment="Stretch">
+                        <TextBox x:Name="_Wishname" Header="Description"/>
+                        <TextBox x:Name="MoneyIn" Header="Amount" TextWrapping="Wrap" InputScope="Number"/>
+                    </StackPanel>
+                    <ListView x:Name="WishListView" Grid.Row="1" 
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              ItemTemplate="{StaticResource WishListDataViews}">
+                        <RelativePanel.Below>pageStart</RelativePanel.Below>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+            
+        </Pivot>
+        <!--<Grid x:Name="pageStart" Grid.Row="1">
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
             <StackPanel Grid.Row="1" VerticalAlignment="Top" Width="300"
                         Orientation="Vertical" Margin="10,5,10,0">
@@ -98,10 +122,10 @@
             </StackPanel>
         </Grid>
         <ListView x:Name="WishListView" HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch"
+                  VerticalAlignment="Stretch" Height="300"
                   ItemTemplate="{StaticResource WishListDataViews}">
-            <RelativePanel.Below>pageHeader</RelativePanel.Below>
-        </ListView>
+            <RelativePanel.Below>pageStart</RelativePanel.Below>
+        </ListView>-->
 
     </RelativePanel>
 </Page>
