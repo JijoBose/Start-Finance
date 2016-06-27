@@ -70,7 +70,7 @@
 
             <!--  secondary commands  -->
             <controls:PageHeader.PrimaryCommands>
-                <AppBarButton Icon="Delete" Label="Delete"/>
+                <AppBarButton Icon="Delete" Label="Delete" Click="AppBarButton_Click"/>
             </controls:PageHeader.PrimaryCommands>
         </controls:PageHeader>
 

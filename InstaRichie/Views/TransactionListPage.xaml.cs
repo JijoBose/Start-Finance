@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using SQLite;
 using InstaRichie.Models;
 using SQLite.Net;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -48,6 +49,31 @@ namespace InstaRichie.Views
             conn.CreateTable<Transactions>();
             var query1 = conn.Table<Transactions>();
             TransList.ItemsSource = query1.ToList();
+        }
+
+        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int TranSelection = ((Transactions)TransList.SelectedItem).ID;
+                if (TranSelection == 0)
+                {
+                    MessageDialog dialog = new MessageDialog("Not selected the Item", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+                    conn.CreateTable<Transactions>();
+                    var query1 = conn.Table<Transactions>();
+                    var query3 = conn.Query<Transactions>("DELETE FROM Transactions WHERE ID ='" + TranSelection + "'");
+                    TransList.ItemsSource = query1.ToList();
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MessageDialog dialog = new MessageDialog("Not selected the Item", "Oops..!");
+                await dialog.ShowAsync();
+            }
         }
     }
 }
