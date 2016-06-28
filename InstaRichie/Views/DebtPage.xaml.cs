@@ -37,8 +37,8 @@ namespace InstaRichie.Views
             /// Initializing a database
             conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
             // Creating table
-            DateStamp.Date = DateTime.Now; // gets current date and time
-            DateStamp1.Date = DateTime.Now;
+            //DateStamp.Date = DateTime.Now; // gets current date and time
+            //DateStamp1.Date = DateTime.Now;
             Resuts();
         }
 
@@ -59,10 +59,10 @@ namespace InstaRichie.Views
             Calculations nnn = new Calculations();
             try
             {
-                string CDay = DateStamp.Date.Value.Day.ToString();
-                string CMonth = DateStamp.Date.Value.Month.ToString();
-                string CYear = DateStamp.Date.Value.Year.ToString();
-                string FinalDate = "" + CMonth + "/" + CDay + "/" + CYear;
+                //string CDay = DateStamp.Date.Value.Day.ToString();
+                //string CMonth = DateStamp.Date.Value.Month.ToString();
+                //string CYear = DateStamp.Date.Value.Year.ToString();
+                //string FinalDate = "" + CMonth + "/" + CDay + "/" + CYear;
 
                 if (Desc.Text == "")
                 {
@@ -75,7 +75,6 @@ namespace InstaRichie.Views
                    double Dmoney = 0 - Money;
                    conn.Insert(new Debt()
                    {
-                     DateofDebt = FinalDate,
                      DebtName = Desc.Text,
                      DebtAmount = Dmoney
                    });
@@ -101,8 +100,8 @@ namespace InstaRichie.Views
         {
             try
             {
-                string AccSelection = ((Debt)DebtList1.SelectedItem).DebtName;
-                if (AccSelection == "")
+                int AccSelection = ((Debt)DebtList1.SelectedItem).ID;
+                if (AccSelection == 0)
                 {
                     MessageDialog dialog = new MessageDialog("Not selected the Item", "Oops..!");
                     await dialog.ShowAsync();
@@ -137,10 +136,10 @@ namespace InstaRichie.Views
             try
             {
                 Calculations nnn = new  Calculations();
-                string CDay = DateStamp.Date.Value.Day.ToString();
-                string CMonth = DateStamp.Date.Value.Month.ToString();
-                string CYear = DateStamp.Date.Value.Year.ToString();
-                string FinalDate = "" + CMonth + "/" + CDay + "/" + CYear;
+                //string CDay = DateStamp1.Date.Value.Day.ToString();
+                //string CMonth = DateStamp1.Date.Value.Month.ToString();
+                //string CYear = DateStamp1.Date.Value.Year.ToString();
+                //string FinalDate = "" + CMonth + "/" + CDay + "/" + CYear;
                 double Money = Convert.ToDouble(MoneyIn1.Text);
                 double DebtBalance = nnn.DebtCalculation();
                 double Dmoney = DebtBalance + Money;
@@ -165,7 +164,6 @@ namespace InstaRichie.Views
                 {
                     conn.Insert(new Debt
                     {
-                        DateofDebt = FinalDate,
                         DebtName = Desc1.Text,
                         DebtAmount = Money
                     });
