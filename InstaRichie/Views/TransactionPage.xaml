@@ -111,7 +111,6 @@
                         </ComboBox>
                         <TextBox x:Name="MoneyIn" Header="Amount" TextWrapping="Wrap" InputScope="Number"/>
                         <TextBox x:Name="Desc" Header="Description"/>
-                        <Button x:Name="AddTran" Content="Add Transaction" Margin="0,20,0,0" Click="AddData"/>
                     </StackPanel>
                 </Grid>
             </PivotItem>
@@ -123,7 +122,6 @@
                         <CalendarDatePicker x:Name="TranDateStamp" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         <TextBox x:Name="TransferMoney" Header="Amount" TextWrapping="Wrap" InputScope="Number"/>
                         <TextBox x:Name="TDesc" Header="Description"/>
-                        <Button x:Name="Transfer" Content="Transfer" Margin="0,20,0,0" Click="Transfer_Click"/>
                     </StackPanel>
                 </Grid>
             </PivotItem>

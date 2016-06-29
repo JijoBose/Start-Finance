@@ -48,7 +48,7 @@ namespace InstaRichie.Views
             Assets.Text = "Assets: " + nnn.AssetCalculation().ToString();
             CreditRatio.Text = "Credit Rating: " + nnn.CreditRatio().ToString();
             Debts.Text = "Debts: " + nnn.DebtCalculation().ToString();
-            FullTotal.Text = "Total Value: " + nnn.FullValuation().ToString();
+            FullTotal.Text = "Total : " + nnn.FullValuation().ToString();
             myDebtFlow.Value = nnn.PercentageScore();
             MonthlyData.Text = "Monthly : " + nnn.MonthlyStatus().ToString();
             RatioReportTxt.Text = nnn.RatioReport();
