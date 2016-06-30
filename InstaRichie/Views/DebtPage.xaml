@@ -106,7 +106,7 @@
             <!--  Primary commands  -->
             <controls:PageHeader.PrimaryCommands>
                 <AppBarButton Icon="Remove" Label="Pay Debt" Click="PayDebt_Click"/>
-                <AppBarButton Icon="Delete" Label="Delete Debt" Click="ClearFileds_Click"/>
+                <AppBarButton x:Name="DeleteItem" Icon="Delete" Label="Delete Debt" Click="DeleteItem_Click"/>
             </controls:PageHeader.PrimaryCommands>
 
         </controls:PageHeader>

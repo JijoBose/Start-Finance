@@ -15,5 +15,7 @@ namespace InstaRichie.Models
         [NotNull, Unique]
         public string CategoryName { get; set; }
 
+        [NotNull]
+        public string Mode { get; set; }
     }
 }

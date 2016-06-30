@@ -110,7 +110,7 @@ namespace InstaRichie.Views
                 {
                     conn.CreateTable<Debt>();
                     var query1 = conn.Table<Debt>();
-                    var query3 = conn.Query<Debt>("DELETE FROM Debt WHERE DebtName ='" + AccSelection + "'");
+                    var query3 = conn.Query<Debt>("DELETE FROM Debt WHERE ID ='" + AccSelection + "'");
                     DebtList1.ItemsSource = query1.ToList();
                 }
 
@@ -206,11 +206,47 @@ namespace InstaRichie.Views
             {
                 AddDebtFooter.Visibility = Visibility.Visible;
                 PayDebtFooter.Visibility = Visibility.Collapsed;
+                conn.CreateTable<Debt>();
+                var query = conn.Table<Debt>();
+                DebtList1.ItemsSource = query.ToList();
             }
             else
             {
                 PayDebtFooter.Visibility = Visibility.Visible;
                 AddDebtFooter.Visibility = Visibility.Collapsed;
+                conn.CreateTable<Debt>();
+                var query = conn.Table<Debt>();
+                DebtList.ItemsSource = query.ToList();
+            }
+        }
+
+        private async void DeleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int AccSelection = ((Debt)DebtList.SelectedItem).ID;
+                if (AccSelection == 0)
+                {
+                    MessageDialog dialog = new MessageDialog("Not selected the Item", "Oops..!");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+                    conn.CreateTable<Debt>();
+                    var query1 = conn.Table<Debt>();
+                    var query3 = conn.Query<Debt>("DELETE FROM Debt WHERE ID ='" + AccSelection + "'");
+                    DebtList.ItemsSource = query1.ToList();
+                }
+
+                conn.CreateTable<Debt>();
+                var query = conn.Table<Debt>();
+                DebtList.ItemsSource = query.ToList();
+
+            }
+            catch (NullReferenceException)
+            {
+                MessageDialog dialog = new MessageDialog("Not selected the Item", "Oops..!");
+                await dialog.ShowAsync();
             }
         }
     }

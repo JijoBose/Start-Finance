@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="32458featapps.InstaRichie" Publisher="CN=CECCF8C9-7E26-41DD-960F-2EE4DE6BBD5C" Version="2.0.11.0" />
+  <Identity Name="32458featapps.InstaRichie" Publisher="CN=CECCF8C9-7E26-41DD-960F-2EE4DE6BBD5C" Version="2.2.14.0" />
   <mp:PhoneIdentity PhoneProductId="55315fcf-abdd-4acd-aa68-afdab1b5cfbf" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>JustWallet</DisplayName>
