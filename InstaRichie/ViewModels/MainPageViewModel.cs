@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Navigation;
 
-namespace InstaRichie.ViewModels
+namespace JustWallet.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {

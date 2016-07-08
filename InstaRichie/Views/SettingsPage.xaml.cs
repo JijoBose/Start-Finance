@@ -1,11 +1,11 @@
-using InstaRichie.Models;
+using JustWallet.Models;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using SQLite.Net;
 using System.IO;
 
-namespace InstaRichie.Views
+namespace JustWallet.Views
 {
     public sealed partial class SettingsPage : Page
     {

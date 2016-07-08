@@ -13,14 +13,14 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using SQLite;
-using InstaRichie.Models;
-using InstaRichie.ViewModels;
+using JustWallet.Models;
+using JustWallet.ViewModels;
 using Windows.UI.Popups;
 using SQLite.Net;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace InstaRichie.Views
+namespace JustWallet.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

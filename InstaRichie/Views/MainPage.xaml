@@ -1,4 +1,4 @@
-<Page x:Class="InstaRichie.Views.MainPage"
+<Page x:Class="JustWallet.Views.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:Behaviors="using:Template10.Behaviors"
@@ -6,9 +6,10 @@
       xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:controls="using:Template10.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="using:InstaRichie.Views"
+      xmlns:local="using:JustWallet.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:vm="using:InstaRichie.ViewModels" mc:Ignorable="d">
+      xmlns:pieCharts="using:CrossPieCharts.UWP.PieCharts"
+      xmlns:vm="using:JustWallet.ViewModels" mc:Ignorable="d">
 
     <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />
@@ -103,6 +104,24 @@
                    RelativePanel.AlignLeftWith="parameterResizer"
                    RelativePanel.Below="parameterResizer"
                    Text="Current Visual State" />
+        
+        <Grid>
+            <RelativePanel.Below>stateTextBox</RelativePanel.Below>
+            <RelativePanel.AlignLeftWith>parameterResizer</RelativePanel.AlignLeftWith>
+            <pieCharts:PieChart Percentage="70"
+                            Radius="50"
+                            BackgroundColor="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                            Segment360Color="LightGreen"
+                            SegmentColor="LightCoral"
+                            StrokeThickness="30" />
+
+            <TextBlock Text="70%"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       FontSize="20"
+                       Foreground="{ThemeResource ApplicationForegroundThemeBrush}" />
+        </Grid>
 
     </RelativePanel>
 </Page>

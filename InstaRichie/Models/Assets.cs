@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite.Net.Attributes;
 
-namespace InstaRichie.Models
+namespace JustWallet.Models
 {
     public class Assets
     {

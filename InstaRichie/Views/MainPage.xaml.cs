@@ -1,11 +1,11 @@
 using System;
-using InstaRichie.ViewModels;
+using JustWallet.ViewModels;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
 
-namespace InstaRichie.Views
+namespace JustWallet.Views
 {
     public sealed partial class MainPage : Page
     {

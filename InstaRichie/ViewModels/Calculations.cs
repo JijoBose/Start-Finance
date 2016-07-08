@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite.Net;
-using InstaRichie.Models;
+using JustWallet.Models;
 using System.IO;
 
-namespace InstaRichie.ViewModels
+namespace JustWallet.ViewModels
 {
     public class Calculations
     {
