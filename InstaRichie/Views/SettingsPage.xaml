@@ -161,10 +161,17 @@
                         <Run>Version</Run>
                         <Run Text="{Binding Version}" />
                     </TextBlock>
+                    <TextBlock x:Name="CopyrightText" TextWrapping="Wrap"
+                               RelativePanel.AlignLeftWithPanel="True"
+                               RelativePanel.Below="VersionTextBlock">
+                        <Run Text="(C) 2016   "/>
+                        <Hyperlink NavigateUri="http://JijoBose.com">Jijo Bose</Hyperlink>
+                        <Run Text="    All RIGHTS RESERVED"/>
+                    </TextBlock>
 
                     <TextBlock x:Name="Credits" Text="Credits : "
                                RelativePanel.AlignLeftWithPanel="True"
-                               Margin="0,60,0,0" FontSize="25"
+                               Margin="0,50,0,0" FontSize="25"
                                RelativePanel.Below="VersionTextBlock"/>
                     
                     <StackPanel x:Name="CreditsInfo" Orientation="Vertical">
@@ -191,7 +198,7 @@
                     <StackPanel Orientation="Vertical" Margin="0,15,0,0">
                         <RelativePanel.AlignLeftWithPanel>True</RelativePanel.AlignLeftWithPanel>
                         <RelativePanel.Below>CreditsInfo</RelativePanel.Below>
-                        <TextBlock Text="Disclaimer :" FontSize="25"/>
+                        <TextBlock Text="Copyrights :" FontSize="25"/>
                         <TextBlock Style="{ThemeResource BaseTextBlockStyle}">
                             <Run Text="Credit Ratings are for informative purposes only and are calculated depending on various factors such as Debt, Assets and Account. Please rely on professional services."/>
                         </TextBlock>
