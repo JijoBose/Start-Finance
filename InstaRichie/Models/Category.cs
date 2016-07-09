@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite.Net.Attributes;
 
-namespace JustWallet.Models
+namespace StartFinance.Models
 {
     public class Category
     {

@@ -1,11 +1,11 @@
 using System;
-using JustWallet.ViewModels;
+using StartFinance.ViewModels;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
 
-namespace JustWallet.Views
+namespace StartFinance.Views
 {
     public sealed partial class MainPage : Page
     {

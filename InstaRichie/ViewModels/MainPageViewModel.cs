@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Navigation;
 
-namespace JustWallet.ViewModels
+namespace StartFinance.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {

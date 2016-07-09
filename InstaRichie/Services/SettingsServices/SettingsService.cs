@@ -3,7 +3,7 @@ using Template10.Common;
 using Template10.Utils;
 using Windows.UI.Xaml;
 
-namespace JustWallet.Services.SettingsServices
+namespace StartFinance.Services.SettingsServices
 {
     public class SettingsService
     {

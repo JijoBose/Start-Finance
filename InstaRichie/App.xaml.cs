@@ -1,6 +1,6 @@
 using Windows.UI.Xaml;
 using System.Threading.Tasks;
-using JustWallet.Services.SettingsServices;
+using StartFinance.Services.SettingsServices;
 using Windows.ApplicationModel.Activation;
 using Template10.Controls;
 using Template10.Common;
@@ -8,7 +8,7 @@ using System;
 using System.Linq;
 using Windows.UI.Xaml.Data;
 
-namespace JustWallet
+namespace StartFinance
 {
     /// Documentation on APIs used in this page:
     /// https://github.com/Windows-XAML/Template10/wiki

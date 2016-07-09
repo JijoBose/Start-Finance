@@ -1,15 +1,15 @@
 ﻿<Page
-    x:Class="JustWallet.Views.AccountsPage"
+    x:Class="StartFinance.Views.AccountsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Behaviors="using:Template10.Behaviors"
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:controls="using:Template10.Controls"
-    xmlns:local="using:JustWallet.Views"
+    xmlns:local="using:StartFinance.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="using:JustWallet.ViewModels"
+    xmlns:vm="using:StartFinance.ViewModels"
     Loaded="Page_Loaded"
     mc:Ignorable="d">
 

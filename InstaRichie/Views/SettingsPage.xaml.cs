@@ -1,11 +1,11 @@
-using JustWallet.Models;
+using StartFinance.Models;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using SQLite.Net;
 using System.IO;
 
-namespace JustWallet.Views
+namespace StartFinance.Views
 {
     public sealed partial class SettingsPage : Page
     {

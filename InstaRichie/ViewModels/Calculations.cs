@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite.Net;
-using JustWallet.Models;
+using StartFinance.Models;
 using System.IO;
 
-namespace JustWallet.ViewModels
+namespace StartFinance.ViewModels
 {
     public class Calculations
     {

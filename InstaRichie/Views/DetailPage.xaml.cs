@@ -1,8 +1,8 @@
-using JustWallet.ViewModels;
+using StartFinance.ViewModels;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Controls;
 
-namespace JustWallet.Views
+namespace StartFinance.Views
 {
     public sealed partial class DetailPage : Page
     {
