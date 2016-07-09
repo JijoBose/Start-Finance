@@ -50,7 +50,7 @@ namespace JustWallet.Views
             Debts.Text = "Debts: " + nnn.DebtCalculation().ToString();
             FullTotal.Text = "Total : " + nnn.FullValuation().ToString();
             DebtChart.Percentage = nnn.PercentageScore();
-            CenterValue.Text= ""+nnn.PercentageScore() +"%";
+            CenterValue.Text= ""+nnn.PercentageScore().ToString("0.00") +"%";
             MonthlyData.Text = "Monthly : " + nnn.MonthlyStatus().ToString();
             RatioReportTxt.Text = nnn.RatioReport();
 
