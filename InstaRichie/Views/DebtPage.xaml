@@ -1,4 +1,20 @@
-﻿<Page
+﻿<!--
+    Start Finance - An to manage your personal finances.
+    Copyright (C) 2016  Jijo Bose
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    
+-->
+
+<Page
     x:Class="StartFinance.Views.DebtPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -125,8 +141,8 @@
                     <StackPanel x:Name="pageStart" Grid.Row="0" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,0">
                         <RelativePanel.Below>pageHeader</RelativePanel.Below>
                         <!--<CalendarDatePicker x:Name="DateStamp" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
-                        <TextBox x:Name="MoneyIn" TextWrapping="Wrap" InputScope="Number" Header="Amount"/>
-                        <TextBox x:Name="Desc" Header="Debt Name or Details"/>
+                        <TextBox x:Name="MoneyIn" TextWrapping="Wrap" PlaceholderText="100.00" InputScope="Number" Header="Amount"/>
+                        <TextBox x:Name="Desc" PlaceholderText="loan, borrowed" Header="Debt Name or Details"/>
                     </StackPanel>
                     <ListView x:Name="DebtList1" Margin="10,5,10,0" Grid.Row="1"
                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -148,11 +164,11 @@
 
                     <StackPanel x:Name="pageStart1" Grid.Row="0" VerticalAlignment="Top" Orientation="Vertical" Margin="10,5,10,15">
                         <!--<CalendarDatePicker x:Name="DateStamp1" Header="Date" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
-                        <ComboBox x:Name="AccountSelct" Header="Account to Pay" HorizontalAlignment="Stretch"
+                        <ComboBox x:Name="AccountSelct" PlaceholderText="Select an Account to pay Debt" Header="Account to Pay" HorizontalAlignment="Stretch"
                               VerticalAlignment="Stretch" ItemTemplate="{StaticResource AccountSelectionData}">
                         </ComboBox>
-                        <TextBox x:Name="MoneyIn1" TextWrapping="Wrap" InputScope="Number" Header="Amount"/>
-                        <TextBox x:Name="Desc1" Header="Debt Name or Details"/>
+                        <TextBox x:Name="MoneyIn1" PlaceholderText="100.00" TextWrapping="Wrap" InputScope="Number" Header="Amount"/>
+                        <TextBox x:Name="Desc1" PlaceholderText="Paid loan.. etc" Header="Debt Name or Details"/>
                     </StackPanel>
                     <ListView x:Name="DebtList" Grid.Row="1"
                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"

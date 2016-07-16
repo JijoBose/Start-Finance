@@ -1,4 +1,22 @@
-﻿using System;
+﻿// **************************************************************************
+//Start Finance - An to manage your personal finances.
+//Copyright(C) 2016  Jijo Bose
+
+//This program is free software: you can redistribute it and/or modify
+//it under the terms of the GNU General Public License as published by
+//the Free Software Foundation, either version 3 of the License, or
+//(at your option) any later version.
+
+//This program is distributed in the hope that it will be useful,
+//but WITHOUT ANY WARRANTY; without even the implied warranty of
+//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//GNU General Public License for more details.
+
+//You should have received a copy of the GNU General Public License
+//along with this program.If not, see<http://www.gnu.org/licenses/>.
+// ***************************************************************************
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -46,11 +64,25 @@ namespace StartFinance.Views
             var query = conn.Table<Accounts>();
             TransactionList.ItemsSource = query.ToList();
         }
+        public string Drafting()
+        {
+            if(overdraft.IsOn)
+            {
+                string onn = "ON";
+                return onn;
+            }
+            else
+            {
+                string off = "OFF";
+                return off;
+            }
+        }
 
         private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             try
-            {   // checks if account name is null
+            {   
+                // checks if account name is null
                 if (AccName.Text.ToString() == "")
                 {
                     MessageDialog dialog = new MessageDialog("Amount Name not Entered", "Oops..!");
@@ -65,7 +97,8 @@ namespace StartFinance.Views
                     conn.Insert(new Accounts()
                     {
                         AccountName = AccName.Text,
-                        InitialAmount = Convert.ToDouble(MoneyIn.Text)
+                        InitialAmount = Convert.ToDouble(MoneyIn.Text),
+                        OverDraft = Drafting()
                     });
                     Results();
                 }

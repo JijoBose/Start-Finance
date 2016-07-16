@@ -81,7 +81,7 @@
                                       RelativePanel.Below="UseShellDrawnBackButtonToggleSwtich" />
 
                         <TextBox x:Name="BusyTextTextBox" Width="200"
-                                 Margin="0,12,0,0" HorizontalAlignment="Left"
+                                 Margin="0,12,0,0" HorizontalAlignment="Left" PlaceholderText="reset"
                                  Header="type 'reset' to Confirm " RelativePanel.AlignLeftWithPanel="True" Loaded="BusyTextTextBox_Loaded"
                                  RelativePanel.Below="UseLightThemeToggleSwitch" TextChanged="BusyTextTextBox_TextChanged" />
 
