@@ -9,4 +9,10 @@ Windows 10 UWP
 - Template 10
 - SQlite.Net-PCL
 
-Feel free to fork and contribute to this project
+#### This project would have never been possible without the following Libraries,
+- [Template 10](https://github.com/Windows-XAML/Template10)
+- [SQLite.Net-PCL](https://github.com/oysteinkrog/SQLite.Net-PCL)
+- [Pie Charts control for Windows UWP](https://github.com/HoussemDellai/Xamarin-Forms-Pie-Chart/)
+
+
+## Feel free to fork and contribute to this project
