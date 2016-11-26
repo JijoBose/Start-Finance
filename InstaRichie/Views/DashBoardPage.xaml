@@ -1,17 +1,17 @@
 ﻿<!--
     Start Finance - An to manage your personal finances.
     Copyright (C) 2016  Jijo Bose
-    This program is free software: you can redistribute it and/or modify
+    Start Finance is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
-    This program is distributed in the hope that it will be useful,
+    Start Finance is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
     You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+    along with Start Finance.  If not, see <http://www.gnu.org/licenses/>.
+
 -->
 
 <Page
@@ -43,7 +43,7 @@
             </Grid>
         </DataTemplate>
     </Page.Resources>
-    
+
     <RelativePanel Background="Orange">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
@@ -101,7 +101,7 @@
 
         <!--- Page starts here-->
 
-        
+
         <Pivot>
             <RelativePanel.Below>pageHeader</RelativePanel.Below>
             <PivotItem Header="Your Summary...">
@@ -117,22 +117,22 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition x:Name="SecondCol" Width="*"/>
                         </Grid.ColumnDefinitions>
-                        
+
                         <Grid x:Name="DashTop" Grid.Row="0" HorizontalAlignment="Left">
                             <Pivot HorizontalAlignment="Center">
                                 <PivotItem Header="Money">
                                     <Grid>
                                         <StackPanel>
-                                            <TextBlock x:Name="AccountTotal" Text="Account Total"                        
+                                            <TextBlock x:Name="AccountTotal" Text="Account Total"
                                              Style="{ThemeResource SubheaderTextBlockStyle}" FontWeight="Bold"/>
-                                            <TextBlock x:Name="Assets" Text="Asset total"                          
+                                            <TextBlock x:Name="Assets" Text="Asset total"
                                              Style="{ThemeResource SubheaderTextBlockStyle}" HorizontalAlignment="Left" FontWeight="Bold"/>
                                         </StackPanel>
                                         <TextBlock x:Name="FullTotal" Text="Full Total" Style="{ThemeResource HeaderTextBlockStyle}"
                                         FontWeight="Bold" VerticalAlignment="Bottom"/>
                                     </Grid>
                                 </PivotItem>
-                               
+
                                 <PivotItem Header="Debts">
                                     <StackPanel>
                                         <TextBlock x:Name="Debts" Text="Debt Total"
@@ -164,7 +164,7 @@
                                     <PivotItem Header="Credit Rating">
                                         <StackPanel>
                                             <TextBlock x:Name="CreditRatio" Text="Credit Ratings"
-                                                   FontSize="30" Padding="0,25,0,0" 
+                                                   FontSize="30" Padding="0,25,0,0"
                                                    FontWeight="Bold"/>
                                             <TextBlock x:Name="RatioReportTxt" TextWrapping="Wrap"
                                                        Text="Credit Ratio Descriptions"/>

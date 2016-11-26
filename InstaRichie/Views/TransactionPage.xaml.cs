@@ -2,18 +2,18 @@
 //Start Finance - An to manage your personal finances.
 //Copyright(C) 2016  Jijo Bose
 
-//This program is free software: you can redistribute it and/or modify
+//Start Finance is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
 //the Free Software Foundation, either version 3 of the License, or
 //(at your option) any later version.
 
-//This program is distributed in the hope that it will be useful,
+//Start Finance is distributed in the hope that it will be useful,
 //but WITHOUT ANY WARRANTY; without even the implied warranty of
 //MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
 //GNU General Public License for more details.
 
 //You should have received a copy of the GNU General Public License
-//along with this program.If not, see<http://www.gnu.org/licenses/>.
+//along with Start Finance.If not, see<http://www.gnu.org/licenses/>.
 // ***************************************************************************
 
 using System;
@@ -84,7 +84,7 @@ namespace StartFinance.Views
 
                 string AccountSelection = ((Accounts)AccountsListSel.SelectedItem).AccountName;
                 /// inserts the data if money value is null
-                /// 
+                ///
                 string Doublecheck = AccountsListSel.SelectedIndex.ToString();
                 if (AccountsListSel.SelectedItem.ToString() == " ") // Needed Improvement
                 {
@@ -93,7 +93,7 @@ namespace StartFinance.Views
                 }
                 else
                 {
-                    //// detects if income 
+                    //// detects if income
                     if (IncExpSelect.SelectionBoxItem.ToString() == "Income")
                     {
                         conn.Insert(new Transactions()
@@ -272,7 +272,7 @@ namespace StartFinance.Views
                 }
                 else
                 {
-                    /// 
+                    ///
                 }
             }
 
