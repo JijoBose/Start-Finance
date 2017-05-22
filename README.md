@@ -15,4 +15,4 @@ Windows 10 UWP
 - [Pie Charts control for Windows UWP](https://github.com/HoussemDellai/Xamarin-Forms-Pie-Chart/)
 
 
-## Feel free to fork and contribute to this project
+#### Note: I no longer update or support this project. You are free to use, fork and contribute to the project as per the GPLv3 license
